@@ -37,10 +37,14 @@ search.addWidgets([
   hits({
     container: '#hits',
     templates: {
+      empty: 
+        `{{#query}}
+          No results found for <q>{{query}}</q>
+        {{/query}}`,
       item: `
         <div>
           <div class="hit-name">
-            {{#helpers.highlight}}{ "attribute": "traditional" }{{/helpers.highlight}}
+            {{#helpers.highlight}}{ "attribute": "pinyinnumeric" }{{/helpers.highlight}}
           </div>
         </div>
       `,
