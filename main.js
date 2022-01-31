@@ -1,11 +1,18 @@
 import './style.css'
 import { MeiliSearch } from 'meilisearch'
-
-const client = new MeiliSearch({ host: 'http://127.0.0.1:7700' })
-
+import translations from '/translations.json'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import instantsearch from 'instantsearch.js'
 import { searchBox, hits } from 'instantsearch.js/es/widgets'
+
+async () => {
+  const client = new MeiliSearch({ host: 'http://127.0.0.1:7700' })
+  const index = client.index('translations')
+
+  let response = index.addDocuments(translations)
+
+  console.log(response)
+}
 
 const searchClient = instantMeiliSearch(
   'http://127.0.0.1:7700',
