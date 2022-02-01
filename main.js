@@ -25,9 +25,12 @@ const searchClient = instantMeiliSearch(
 
 const search = instantsearch({
   indexName: 'translations',
-  searchClient: instantMeiliSearch(
-    'http://127.0.0.1:7700',
-  ),
+  searchClient: searchClient,
+  searchFunction(helper) {
+    const container = document.querySelector('#hits');
+    container.style.display = helper.state.query === '' ? 'none' : '';
+    helper.search();
+  }
 })
 
 search.addWidgets([
@@ -44,7 +47,9 @@ search.addWidgets([
       item: `
         <div>
           <div class="hit-name">
-            {{#helpers.highlight}}{ "attribute": "pinyinnumeric" }{{/helpers.highlight}}
+            {{#helpers.highlight}}{ "attribute": "traditional" }{{/helpers.highlight}}
+            {{#helpers.highlight}}{ "attribute": "pinyinDiacritic" }{{/helpers.highlight}}
+            {{#helpers.highlight}}{ "attribute": "definitions" }{{/helpers.highlight}}
           </div>
         </div>
       `,
