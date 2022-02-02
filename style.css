@@ -1,16 +1,32 @@
 body {
-  display: flex;
-  justify-content: center;
+  margin: 0;
 }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-image: url('194.jpg');
+  background-size: cover;
+  height: 60vh;
+}
+
+h1 {
+  font-size: 32px;
   margin-top: 150px;
-  width: 50%;
+}
+
+h1, h2 {
+  color: rgba(0,0,0,.88);
+  text-align: center;
+}
+
+#searchbox {
+  width: 100%;
 }
 
 .ais-SearchBox-input {
