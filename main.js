@@ -36,6 +36,7 @@ const search = instantsearch({
 search.addWidgets([
   searchBox({
     container: '#searchbox',
+    placeholder: 'Translate English, Pinyin, Traditional or Simplified Chinese'
   }),
   hits({
     container: '#hits',
