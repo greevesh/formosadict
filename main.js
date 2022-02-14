@@ -1,6 +1,7 @@
 import './style.css'
+import '/random-translation.js'
 import { MeiliSearch } from 'meilisearch'
-import translations from '/translations.json'
+import translations from './translations.json'
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import instantsearch from 'instantsearch.js'
 import { searchBox, hits } from 'instantsearch.js/es/widgets'
