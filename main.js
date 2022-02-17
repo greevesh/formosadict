@@ -1,19 +1,24 @@
 import './style.css'
-import '/random-translation.js'
+import './random-translation.js'
 import { MeiliSearch } from 'meilisearch'
-import translations from './translations.json'
+import translations from './translations.json' 
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
 import instantsearch from 'instantsearch.js'
-import { searchBox, hits } from 'instantsearch.js/es/widgets'
+import { searchBox, hits } from 'instantsearch.js/es/widgets/index.js'
 
-async () => {
-  const client = new MeiliSearch({ host: 'http://127.0.0.1:7700' })
+;(async () => {
+  const client = new MeiliSearch({
+    host: 'http://127.0.0.1:7700'
+  })
+
+  // An index is where the documents are stored.
   const index = client.index('translations')
 
-  let response = index.addDocuments(translations)
+  // If the index 'movies' does not exist, Meilisearch creates it when you first add the documents.
+  let response = await index.addDocuments(translations)
 
-  console.log(response)
-}
+  console.log(response) // => { "uid": 0 }
+})()
 
 const searchClient = instantMeiliSearch(
   'http://127.0.0.1:7700',
