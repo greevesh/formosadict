@@ -42,7 +42,8 @@ const search = instantsearch({
 search.addWidgets([
   searchBox({
     container: '#searchbox',
-    placeholder: 'Translate English, Pinyin, Traditional or Simplified Chinese'
+    placeholder: 'Translate English, Pinyin, Traditional or Simplified Chinese',
+    hitsPerPage: 1
   }),
   hits({
     container: '#hits',
@@ -54,9 +55,18 @@ search.addWidgets([
       item: `
         <div>
           <div class="hit-name">
-            {{#helpers.highlight}}{ "attribute": "traditional" }{{/helpers.highlight}}
-            {{#helpers.highlight}}{ "attribute": "pinyinDiacritic" }{{/helpers.highlight}}
-            {{#helpers.highlight}}{ "attribute": "definitions" }{{/helpers.highlight}}
+            <div class="hit">
+              {{#helpers.highlight}}{ "attribute": "traditional" }{{/helpers.highlight}}
+            </div>
+            <div class="hit">
+              {{#helpers.highlight}}{ "attribute": "pinyinDiacritic" }{{/helpers.highlight}}
+            </div>
+            <div class="hit">
+              {{#helpers.highlight}}{ "attribute": "definitions" }{{/helpers.highlight}}
+            </div>
+            <div class="hit">
+              {{#helpers.highlight}}{ "attribute": "simplified" }{{/helpers.highlight}}
+            </div>
           </div>
         </div>
       `,
