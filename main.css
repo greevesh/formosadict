@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-image: url("/taiwan-banner.jpg");
+  background-size: cover;
+  height: 60vh;
+  width: 100%;
+}
+
+#app div {
+  width: 100%;
+}
+
+h1 {
+  font-size: 32px;
+  margin-top: 125px;
+}
+
+h1, h2 {
+  color: rgba(0, 0, 0, 0.88);
+  text-align: center;
+}
+
+#searchbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#searchbox {
+  width: 50% !important;
+}
+
+/* search icon */
+.ais-SearchBox-form:before {
+  margin-top: -4px;
+}
+
+.ais-SearchBox-input {
+  font-size: 20px;
+  height: 50px;
+  border-radius: 500px;
+}
+
+.ais-SearchBox-input:focus {
+  border-color: #73cac0;
+}
+
+.labels {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 250px 1120px 150px 1fr;
+      grid-template-columns: 250px 1120px 150px 1fr;
+  margin-top: 170px;
+  padding-left: 22px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#73cac0), color-stop(50%), to(#8bccc4));
+  background: linear-gradient(to bottom, #73cac0, 50%, #8bccc4 100%);
+  color: #fff;
+}
+
+.labels .labels__text:nth-child(1) {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+}
+
+.labels .labels__text:nth-child(2) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+}
+
+.labels .labels__text:nth-child(3) {
+  grid-column: 3 / -1;
+}
+
+.ais-Hits-item {
+  height: 100px;
+}
+
+.hit-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 250px 1120px 150px 1fr;
+      grid-template-columns: 250px 1120px 150px 1fr;
+  font-size: 24px;
+  font-weight: 500;
+  /* traditional */
+  /* pinyin */
+  /* definition */
+  /* simplified */
+}
+
+.hit-container .hit:nth-child(1) {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  margin-top: 15px;
+}
+
+.hit-container .hit:nth-child(2) {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  font-size: 18px;
+  margin-top: 7px;
+  color: #7b7d80;
+}
+
+.hit-container .hit:nth-child(3) {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  margin-top: -15px;
+  font-size: 19px;
+}
+
+.hit-container .hit:nth-child(4) {
+  grid-column: 3 / -1;
+  margin-top: -13px;
+}
+
+/* highlighted word */
+.ais-Highlight-highlighted {
+  color: #1fa030;
+}
+/*# sourceMappingURL=main.css.map */

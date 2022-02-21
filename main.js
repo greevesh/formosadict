@@ -1,4 +1,4 @@
-import './style.css'
+import './main.css'
 import './random-translation.js'
 import { MeiliSearch } from 'meilisearch'
 import translations from './translations.json' 
@@ -42,8 +42,7 @@ const search = instantsearch({
 search.addWidgets([
   searchBox({
     container: '#searchbox',
-    placeholder: 'Translate English, Pinyin, Traditional or Simplified Chinese',
-    hitsPerPage: 1
+    placeholder: 'Translate English, Pinyin, Traditional or Simplified Chinese'
   }),
   hits({
     container: '#hits',
@@ -54,7 +53,7 @@ search.addWidgets([
         {{/query}}`,
       item: `
         <div>
-          <div class="hit-name">
+          <div class="hit-container">
             <div class="hit">
               {{#helpers.highlight}}{ "attribute": "traditional" }{{/helpers.highlight}}
             </div>
