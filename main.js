@@ -33,8 +33,10 @@ const search = instantsearch({
   indexName: 'translations',
   searchClient: searchClient,
   searchFunction(helper) {
-    const container = document.querySelector('#hits');
-    container.style.display = helper.state.query === '' ? 'none' : '';
+    const labels = document.querySelector('.labels')
+    const container = document.querySelector('#hits')
+    labels.style.display = helper.state.query === '' ? 'none' : 'grid'
+    container.style.display = helper.state.query === '' ? 'none' : ''
     helper.search();
   }
 })

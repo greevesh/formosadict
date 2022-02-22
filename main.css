@@ -36,6 +36,8 @@ body {
   height: 7vh;
   background: -webkit-gradient(linear, left top, left bottom, from(#73cac0), color-stop(50%), to(#8bccc4));
   background: linear-gradient(to bottom, #73cac0, 50%, #8bccc4 100%);
+  -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.35);
+          box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.35);
 }
 
 .suggest-bar .suggest-bar__text {
@@ -71,6 +73,10 @@ h1, h2 {
   width: 50% !important;
 }
 
+.ais-SearchBox-form:before {
+  margin-top: -4px;
+}
+
 .ais-SearchBox-input {
   font-size: 20px;
   height: 50px;
@@ -81,20 +87,14 @@ h1, h2 {
   border-color: #73cac0;
 }
 
-.ais-SearchBox-input .ais-SearchBox-form:before {
-  margin-top: -4px;
-}
-
-.ais-SearchBox-input .ais-SearchBox-resetIcon {
+.ais-SearchBox-resetIcon {
   margin-top: 8px;
 }
 
 .labels {
-  display: -ms-grid;
-  display: grid;
   -ms-grid-columns: 250px 1120px 150px 1fr;
       grid-template-columns: 250px 1120px 150px 1fr;
-  margin-top: 150px;
+  margin-top: 148px;
   padding-left: 22px;
   background: -webkit-gradient(linear, left top, left bottom, from(#73cac0), color-stop(50%), to(#8bccc4));
   background: linear-gradient(to bottom, #73cac0, 50%, #8bccc4 100%);

@@ -30,6 +30,7 @@ body {
   align-items: center;
   height: 7vh;
   background: $main-background-color;
+  box-shadow: 0 0 7px 0 rgba(0, 0 ,0 ,0.35);
 
   .suggest-bar__text {
     color: #fff;
@@ -61,6 +62,11 @@ h1, h2 {
   width: 50% !important;
 }
 
+// search icon
+.ais-SearchBox-form:before {
+  margin-top: -4px;
+}
+
 .ais-SearchBox-input {
   font-size: 20px;
   height: 50px;
@@ -69,21 +75,15 @@ h1, h2 {
   .ais-SearchBox-input:focus {
     border-color: #73cac0;
   }
+}
 
-  // search icon
-  .ais-SearchBox-form:before {
-    margin-top: -4px;
-  }
-
-  .ais-SearchBox-resetIcon {
-    margin-top: 8px;
-  }
+.ais-SearchBox-resetIcon {
+  margin-top: 8px;
 }
 
 .labels {
-  display: grid;
   grid-template-columns: 250px 1120px 150px 1fr;
-  margin-top: 150px;
+  margin-top: 148px;
   padding-left: 22px;
   background: $main-background-color;
   color: #fff;
