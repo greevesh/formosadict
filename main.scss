@@ -2,6 +2,7 @@
 
 // variables
 $main-background-color: linear-gradient(to bottom, #73cac0, 50%, #8bccc4 100%);
+$h2-font-size: 18px;
 
 body {
   margin: 0;
@@ -146,4 +147,29 @@ h1, h2 {
 /* highlighted word */
 .ais-Highlight-highlighted {
   color: #1fa030;
+}
+
+.wotd {
+  display: flex;
+  justify-content: center;
+}
+
+.wotd__container {
+  margin-top: 182px;
+  font-size: $h2-font-size;
+  background-color: #f7f7f7;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: 30vh;
+  width: 70vw;
+  border-radius: 250px;
+}
+
+.wotd__translation {
+  text-align: center;
+
+  .wotd__translation__text:nth-child(1) {
+    font-size: 25px;
+    font-weight: bold;
+  }
 }
