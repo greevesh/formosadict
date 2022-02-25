@@ -1,5 +1,5 @@
 import './main.css'
-import './random-translation.js'
+import './wotd.js'
 import { MeiliSearch } from 'meilisearch'
 import translations from './translations.json' 
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
@@ -34,9 +34,18 @@ const search = instantsearch({
   searchClient: searchClient,
   searchFunction(helper) {
     const labels = document.querySelector('.labels')
-    const container = document.querySelector('#hits')
-    labels.style.display = helper.state.query === '' ? 'none' : 'grid'
-    container.style.display = helper.state.query === '' ? 'none' : ''
+    const hitsContainer = document.querySelector('#hits')
+    const wotd = document.querySelector('#wotd')
+    if (helper.state.query !== '') {
+      labels.style.display = 'grid'
+      hitsContainer.style.display =  ''
+      wotd.style.marginTop = '70px'
+    }
+    else {
+      labels.style.display = 'none'
+      hitsContainer.style.display =  'none'
+      wotd.style.marginTop = '182px'
+    }
     helper.search();
   }
 })
