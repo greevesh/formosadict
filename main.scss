@@ -1,8 +1,19 @@
 // CUSTOM CLASSES USE BEM, INSTANTSEARCH CLASSES DON'T
 
-// variables
 $main-background-color: linear-gradient(to bottom, #73cac0, 50%, #8bccc4 100%);
 $h2-font-size: 18px;
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
 
 body {
   margin: 0;
@@ -31,7 +42,9 @@ body {
   align-items: center;
   height: 7vh;
   background: $main-background-color;
-  box-shadow: 0 0 7px 0 rgba(0, 0 ,0 ,0.35);
+  box-shadow: 0 0 7px 0 rgba(0, 0 , 0 , 0.35);
+  transition: all 2s;
+  animation: slide-down 1.5s;
 
   .suggest-bar__text {
     color: #fff;
