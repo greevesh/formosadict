@@ -3,6 +3,20 @@
 $main-background-color: linear-gradient(to bottom, #73cac0, 50%, #8bccc4 100%);
 $h2-font-size: 18px;
 
+// @keyframes pulse {
+//   0% {
+// 		transform: scale(0.75);
+// 	}
+
+// 	70% {
+// 		transform: scale(1);
+// 	}
+
+// 	100% {
+// 		transform: scale(0.75);
+// 	}
+// }
+
 @keyframes slide-down {
   0% {
     opacity: 0;
@@ -30,7 +44,32 @@ body {
   background-size: cover;
   height: 60vh;
   width: 100%;
+  // display: none;
 }
+
+// .loader {
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: #73cac0;
+
+//   .loader__circle {
+//     width: 50px !important;
+//     height: 50px;
+//     border-radius: 50%;
+//   }
+
+//   .loader__circle:nth-child(1) {
+//     background-color: #ffffff;
+//     animation: pulse 2s infinite;
+//   }
+
+//   .loader__circle:nth-child(2) {
+//     background-color: #eff0f0;
+//     animation: pulse 3s infinite;
+//   }
+// }
 
 #app div {
   width: 100%;
