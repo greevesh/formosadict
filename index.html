@@ -21,7 +21,7 @@
           <p class="suggest-bar__text">Can't find a translation? <a class="suggest-bar__text__link" href="#">Suggest a translation</a></p>
         </div>
         <h1>FormosaDict</h1>
-        <h3>Soon to be a Taiwanese-Mandarin Chinese-English dictionary for expats living in Taiwan</h3>
+        <h3>Soon to be a Taiwanese-Mandarin Chinese-English dictionary for expats in Taiwan</h3>
         <div id="searchbox-container">
           <div id="searchbox"></div>
         </div>
@@ -37,21 +37,42 @@
             <h4>Simplified</h4>
           </div>
         </section>
+
         <div id="hits"></div>
-        <div id="wotd" class="wotd">
-          <section class="wotd__container">
-            <h2>Word of the Day</h2>
-            <div class="wotd__translation">
-              <p id="chinese" class="wotd__translation__text"></p>
-              <p id="pinyin" class="wotd__translation__text"></p>
-              <p id="definition" class="wotd__translation__text"></p>
-            </div>
-          </section>
-        </div>
         
+        <div class="secondary-content">
+          <div id="wotd" class="wotd">
+            <section class="wotd__container">
+              <h2>Word of the Day</h2>
+              <div class="wotd__translation">
+                <p id="chinese" class="wotd__translation__text"></p>
+                <p id="pinyin" class="wotd__translation__text"></p>
+                <p id="definition" class="wotd__translation__text"></p>
+              </div>
+            </section>
+          </div>
+
+          <div class="form">
+            <section class="form__container">
+              <h2>Suggest a Translation</h2>
+              <div>
+                <form action="">
+                  <input type="text" class="form__input" placeholder="Traditional" required><br>
+                  <input type="text" class="form__input" placeholder="Simplified" required><br>
+                  <input type="text" class="form__input" placeholder="Pinyin" required><br>
+                  <input type="text" class="form__input" placeholder="Definition" required><br>
+                  <button class="suggest-btn">Suggest</button>
+                </form>
+              </div>
+              
+            </section>
+          </div>
+        </div>
+
       </div>
-      
+
     </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>

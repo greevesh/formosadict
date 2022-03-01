@@ -201,19 +201,25 @@ h1, h2, h3 {
   color: #1fa030;
 }
 
+.secondary-content {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  height: 60vh;
+}
+
 .wotd {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .wotd__container {
-  // margin-top: 182px;
   font-size: $h2-font-size;
-  background-color: #f7f7f7;
   padding-top: 5px;
   padding-bottom: 5px;
   height: 30vh;
-  width: 70vw;
+  width: 45vw;
   border-radius: 250px;
 }
 
@@ -223,5 +229,43 @@ h1, h2, h3 {
   .wotd__translation__text:nth-child(1) {
     font-size: 25px;
     font-weight: bold;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+
+  .form__container {
+    width: 45vw;
+    height: 50vh;
+    border-radius: 200px;
+    padding-bottom: 10px;
+  }
+
+  .form__container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .form__input::placeholder {
+    padding-left: 5px;
+  }
+  
+  .form__input {
+    padding: 5px;
+    margin: 5px;
+    width: 30vw;
+    height: 25px;
+    font-size: 20px;
+    border-radius: 500px;
+  }
+
+  .suggest-btn {
+    margin-top: 20px;
+    margin-left: 5px;
+    border-radius: 300px;
   }
 }
