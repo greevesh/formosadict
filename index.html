@@ -18,9 +18,9 @@
       
       <div>
         <div class="suggest-bar">
-          <p class="suggest-bar__text">Can't find a translation? <a class="suggest-bar__text__link" href="#">Suggest a translation</a></p>
+          <p class="suggest-bar__text">Can't find a translation? <a class="suggest-bar__link" href="#suggest-form">Suggest a translation</a></p>
         </div>
-        <h1>FormosaDict</h1>
+        <h1 class="header">FormosaDict</h1>
         <h3>Soon to be a Taiwanese-Mandarin Chinese-English dictionary for expats in Taiwan</h3>
         <div id="searchbox-container">
           <div id="searchbox"></div>
@@ -41,27 +41,34 @@
         <div id="hits"></div>
         
         <div class="secondary-content">
+
           <div id="wotd" class="wotd">
             <section class="wotd__container">
               <h2>Word of the Day</h2>
               <div class="wotd__translation">
-                <p id="chinese" class="wotd__translation__text"></p>
-                <p id="pinyin" class="wotd__translation__text"></p>
-                <p id="definition" class="wotd__translation__text"></p>
+                <p id="chinese" class="wotd__text"></p>
+                <p id="pinyin" class="wotd__text"></p>
+                <p id="definition" class="wotd__text"></p>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false" data-size="large"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
               </div>
             </section>
           </div>
 
-          <div class="form">
+          <div id="suggest-form" class="form">
             <section class="form__container">
-              <h2>Suggest a Translation</h2>
+              <h2 class="form__header">Suggest a Translation 📘</h2>
+              <p class="form__paragraph">Please follow the format of the input placeholders if possible</p>
               <div>
                 <form action="">
-                  <input type="text" class="form__input" placeholder="Traditional" required><br>
-                  <input type="text" class="form__input" placeholder="Simplified" required><br>
-                  <input type="text" class="form__input" placeholder="Pinyin" required><br>
-                  <input type="text" class="form__input" placeholder="Definition" required><br>
-                  <button class="suggest-btn">Suggest</button>
+                  <label class="form__label" for="">Traditional</label><br>
+                  <input type="text" class="form__input" placeholder="電腦" required><br>
+                  <label class="form__label" for="">Simplified</label><br>
+                  <input type="text" class="form__input" placeholder="电脑" required><br>
+                  <label class="form__label" for="">Pinyin</label><br>
+                  <input type="text" class="form__input" placeholder="Diànnǎo" required><br>
+                  <label class="form__label" for="">Definition</label><br>
+                  <input type="text" class="form__input" placeholder="computer" required><br>
+                  <button class="form__btn">Suggest</button>
                 </form>
               </div>
               
