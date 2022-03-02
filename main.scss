@@ -136,7 +136,7 @@ h1, h2, h3 {
 }
 
 .labels {
-  grid-template-columns: 250px 1120px 150px 1fr;
+  grid-template-columns: 250px 1075px 150px 1fr;
   margin-top: 148px;
   padding-left: 22px;
   background: $main-background-color;
@@ -165,7 +165,7 @@ h1, h2, h3 {
 
 .hit-container {
   display: grid;
-  grid-template-columns: 250px 1120px 150px 1fr;
+  grid-template-columns: 250px 1075px 150px 1fr;
   font-size: 24px;
   font-weight: 500;
 
@@ -173,6 +173,7 @@ h1, h2, h3 {
   .hit:nth-child(1) {
     grid-column: 1 / 2;
     margin-top: 15px;
+    font-size: 18px;
   }
 
   /* pinyin */
@@ -195,6 +196,7 @@ h1, h2, h3 {
     grid-column: 3 / -1;
     margin-top: -13px;
     font-size: 18px;
+    display: block;
   }
 }
 
