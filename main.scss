@@ -43,7 +43,7 @@ body {
   justify-content: center;
   background-image: url('/taiwan-banner.jpg');
   background-size: cover;
-  height: 60vh;
+  height: 59vh;
   width: 100%;
   // display: none;
 }
@@ -194,6 +194,7 @@ h1, h2, h3 {
   .hit:nth-child(4) {
     grid-column: 3 / -1;
     margin-top: -13px;
+    font-size: 18px;
   }
 }
 
