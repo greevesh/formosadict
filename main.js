@@ -1,5 +1,6 @@
 import './main.css'
 import './wotd.js'
+// import './loader.js'
 import { MeiliSearch } from 'meilisearch'
 import translations from './translations.json' 
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
@@ -35,16 +36,16 @@ const search = instantsearch({
   searchFunction(helper) {
     const labels = document.querySelector('.labels')
     const hitsContainer = document.querySelector('#hits')
-    const wotd = document.querySelector('#wotd')
+    const secondaryContent = document.querySelector('.secondary-content')
     if (helper.state.query !== '') {
       labels.style.display = 'grid'
       hitsContainer.style.display =  ''
-      wotd.style.marginTop = '70px'
+      secondaryContent.style.marginTop = '50px'
     }
     else {
       labels.style.display = 'none'
       hitsContainer.style.display =  'none'
-      wotd.style.marginTop = '182px'
+      secondaryContent.style.marginTop = '200px'
     }
     helper.search();
   }
