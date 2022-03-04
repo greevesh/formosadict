@@ -1,6 +1,7 @@
 // CUSTOM CLASSES USE BEM, INSTANTSEARCH CLASSES DON'T
 
 $main-background-color: #5cbbf6;
+$secondary-background-color: #2c3e50;
 $h2-font-size: 18px;
 
 // @keyframes pulse {
@@ -299,7 +300,7 @@ h1, h2, h3 {
   .form__btn {
     margin-top: 20px;
     margin-left: 8px;
-    background-color: #5cbbf6;
+    background-color: $main-background-color;
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
     border: none;
     font-size: 20px;
@@ -312,4 +313,14 @@ h1, h2, h3 {
     cursor: pointer;
     background-color: $main-background-color;
   }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  background-color: $secondary-background-color;
+  margin-top: 100px;
+  color: #fff;
 }
