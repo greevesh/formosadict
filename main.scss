@@ -44,7 +44,7 @@ body {
   justify-content: center;
   background-image: url('/taiwan-banner.jpg');
   background-size: cover;
-  height: 59vh;
+  height: 55vh;
   width: 100%;
   // display: none;
 }
@@ -311,7 +311,7 @@ h1, h2, h3 {
 
   .form__btn:hover {
     cursor: pointer;
-    background-color: $main-background-color;
+    background-color: #1d9bf0;
   }
 }
 
