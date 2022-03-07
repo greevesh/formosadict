@@ -117,23 +117,23 @@ h1, h2, h3 {
   width: 50% !important;
 }
 
+// search icon
+.ais-SearchBox-form:before {
+  margin-top: -4px;
+}
+
 .ais-SearchBox-input {
   font-size: 20px;
   height: 50px;
   border-radius: 500px;
 
-  // search icon
-  &:before {
-    margin-top: -4px;
-  }
-
   &:focus {
     border-color: #73cac0;
   }
+}
 
-  & .resetIcon {
-    margin-top: 8px;
-  }
+.ais-SearchBox-reset {
+  margin-top: 4px;
 }
 
 .labels {
