@@ -3,7 +3,6 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <header>
   
     <div class="wrapper">
       <div class="flashcard-container">
@@ -26,12 +25,15 @@ import { RouterView } from "vue-router";
         </div>
       </div>
     </div>
-    
-  </header>
 
   <RouterView />
 </template>
 
 <style>
-
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 </style>
