@@ -29,7 +29,7 @@ import { RouterView } from "vue-router";
   <RouterView />
 </template>
 
-<style>
+<style lang="scss">
   body {
     overflow: hidden;
   }
@@ -45,10 +45,29 @@ import { RouterView } from "vue-router";
     display: flex;
     justify-content: center;
     width: 60%;
+    height: 60%;
+    border: red solid 2px;
   }
 
   .flashcards {
     width: 100%;
     text-align: center;
+
+    &__translation {
+      margin-top: 160px;
+    }
+
+    &__cross-check {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 90px;
+    }
+
+    &__nav-score {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 85px;
+      padding: 0 8px;
+    }
   }
 </style>
