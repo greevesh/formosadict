@@ -15,12 +15,12 @@ import { RouterView } from "vue-router";
           </div>
           <div class="flashcards__cross-check">
             <span class="x">X</span>
-            <span class="check"></span>
+            <span class="check">Check</span>
           </div>
           <div class="flashcards__nav-score">
-            <p>Previous</p>
-            <p>0/1</p>
-            <p>Next</p>
+            <span>Previous</span>
+            <span>0/1</span>
+            <span>Next</span>
           </div>
         </div>
       </div>
@@ -30,10 +30,25 @@ import { RouterView } from "vue-router";
 </template>
 
 <style>
+  body {
+    overflow: hidden;
+  }
+
   .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+  }
+
+  .flashcard-container {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+  }
+
+  .flashcards {
+    width: 100%;
+    text-align: center;
   }
 </style>
