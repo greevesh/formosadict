@@ -6,18 +6,33 @@ import { RouterView } from "vue-router";
   
     <div class="wrapper">
       <div class="flashcard-container">
-        <div class="flashcards">
-          <div class="flashcards__instructions">
+        <!-- <div class="flashcards-front">
+          <div class="flashcards-front__instructions">
             <p>Click card to see the term 👇</p>
           </div>
-          <div class="flashcards__translation">
+          <div class="flashcards-front__translation">
             <p>隱形</p>
           </div>
-          <div class="flashcards__cross-check">
-            <font-awesome-icon class="flashcards__check" icon="check" />
-            <font-awesome-icon class="flashcards__x" :icon="['fas', 'x']" />
+          <div class="flashcards-front__cross-check">
+            <font-awesome-icon class="flashcards-front__check" icon="check" />
+            <font-awesome-icon class="flashcards-front__x" :icon="['fas', 'x']" />
           </div>
-          <div class="flashcards__score">
+          <div class="flashcards-front__score">
+            <span>0/1</span>
+          </div>
+        </div> -->
+        <div class="flashcards-back">
+          <div class="flashcards-back__instructions">
+              <p>Click card to see the term 👇</p>
+          </div>
+          <div class="flashcards-back__translation">
+            <p>
+              invisible
+              <br>
+              <span class="pinyin">yǐn xíng</span> 
+            </p>
+          </div>
+          <div class="flashcards-back__score">
             <span>0/1</span>
           </div>
         </div>
@@ -54,7 +69,7 @@ import { RouterView } from "vue-router";
     border-radius: 20px;
   }
 
-  .flashcards {
+  .flashcards-front, .flashcards-back {
     width: 100%;
     text-align: center;
     margin: 0;
@@ -72,6 +87,15 @@ import { RouterView } from "vue-router";
       margin-top: 60px;
       font-size: 65px;
       color: #2c3e50;
+    }
+
+    .flashcards-back__translation {
+      font-size: 45px;
+      margin-top: 120px;
+
+      .pinyin {
+        font-size: 32px;
+      }
     }
 
     &__cross-check {
@@ -114,6 +138,10 @@ import { RouterView } from "vue-router";
       color: #fff;
       height: 10%;
       font-size: 20px;
+    }
+
+    .flashcards-back__score {
+      margin-top: 168px;
     }
   }
 </style>
