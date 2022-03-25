@@ -8,19 +8,17 @@ import { RouterView } from "vue-router";
       <div class="flashcard-container">
         <div class="flashcards">
           <div class="flashcards__instructions">
-            <p>Click card to see the term</p>
+            <p>Click card to see the term 👇</p>
           </div>
           <div class="flashcards__translation">
             <p>隱形</p>
           </div>
           <div class="flashcards__cross-check">
-            <font-awesome-icon icon="check" />
-            <font-awesome-icon class="x" :icon="['fas', 'x']" />
+            <font-awesome-icon class="flashcards__check" icon="check" />
+            <font-awesome-icon class="flashcards__x" :icon="['fas', 'x']" />
           </div>
-          <div class="flashcards__nav-score">
-            <span>Previous</span>
+          <div class="flashcards__score">
             <span>0/1</span>
-            <span>Next</span>
           </div>
         </div>
       </div>
@@ -37,6 +35,7 @@ import { RouterView } from "vue-router";
 
   body {
     overflow: hidden;
+    background-color: #f5fdfc;
   }
 
   .wrapper {
@@ -51,7 +50,8 @@ import { RouterView } from "vue-router";
     justify-content: center;
     width: 60%;
     height: 60%;
-    border: red solid 2px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
   }
 
   .flashcards {
@@ -60,12 +60,18 @@ import { RouterView } from "vue-router";
     margin: 0;
 
     &__instructions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: #5cbbf6;
       color: #fff;
+      height: 10%;
     }
 
     &__translation {
-      margin-top: 160px;
+      margin-top: 60px;
+      font-size: 65px;
+      color: #2c3e50;
     }
 
     &__cross-check {
@@ -74,11 +80,40 @@ import { RouterView } from "vue-router";
       margin-top: 90px;
     }
 
-    &__nav-score {
+    &__check, &__x {
+        font-size: 35px;
+        box-shadow: 0px 0px 0px 1px, 0px 0px 0px 1px inset;
+        border-radius: 50px;
+    }
+
+    &__check:hover, &__x:hover {
+      cursor: pointer;
+    }
+
+    &__check {
+      color: #fff;
+      background-color: rgb(41, 217, 62);
+      border-color: rgb(41, 217, 62);
+      padding: 16px;
+    }
+
+    &__x {
+      color: #fff;
+      background-color: rgb(252, 3, 40);
+      border-color: rgb(252, 3, 40);
+      padding: 15px 18px;
+    }
+
+    &__score {
       display: flex;
-      justify-content: space-between;
-      margin-top: 85px;
-      padding: 0 8px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 55px;
+      padding: 0 18px;
+      background-color: #2c3e50;
+      color: #fff;
+      height: 10%;
+      font-size: 20px;
     }
   }
 </style>
