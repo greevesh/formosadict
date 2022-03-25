@@ -14,8 +14,8 @@ import { RouterView } from "vue-router";
             <p>隱形</p>
           </div>
           <div class="flashcards__cross-check">
-            <span class="x">X</span>
-            <span class="check">Check</span>
+            <font-awesome-icon icon="check" />
+            <font-awesome-icon class="x" :icon="['fas', 'x']" />
           </div>
           <div class="flashcards__nav-score">
             <span>Previous</span>
@@ -30,6 +30,11 @@ import { RouterView } from "vue-router";
 </template>
 
 <style lang="scss">
+  * {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+  }
+
   body {
     overflow: hidden;
   }
@@ -52,6 +57,12 @@ import { RouterView } from "vue-router";
   .flashcards {
     width: 100%;
     text-align: center;
+    margin: 0;
+
+    &__instructions {
+      background-color: #5cbbf6;
+      color: #fff;
+    }
 
     &__translation {
       margin-top: 160px;
