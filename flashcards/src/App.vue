@@ -32,6 +32,10 @@ import { RouterView } from "vue-router";
               <span class="pinyin">yǐn xíng</span> 
             </p>
           </div>
+          <div class="flashcards-front__cross-check">
+            <font-awesome-icon class="flashcards-front__check" icon="check" />
+            <font-awesome-icon class="flashcards-front__x" :icon="['fas', 'x']" />
+          </div>
           <div class="flashcards-back__score">
             <span>0/1</span>
           </div>
@@ -91,7 +95,7 @@ import { RouterView } from "vue-router";
 
     .flashcards-back__translation {
       font-size: 45px;
-      margin-top: 120px;
+      margin-top: 75px;
 
       .pinyin {
         font-size: 32px;
@@ -141,7 +145,7 @@ import { RouterView } from "vue-router";
     }
 
     .flashcards-back__score {
-      margin-top: 168px;
+      
     }
   }
 </style>
