@@ -6,7 +6,7 @@ import { RouterView } from "vue-router";
   
     <div class="wrapper">
       <div class="flashcard-container">
-        <!-- <div class="flashcards-front">
+        <div class="flashcards-front">
           <div class="flashcards-front__instructions">
             <p>Click card to see the term 👇</p>
           </div>
@@ -20,7 +20,7 @@ import { RouterView } from "vue-router";
           <div class="flashcards-front__score">
             <span>0/1</span>
           </div>
-        </div> -->
+        </div>
         <div class="flashcards-back">
           <div class="flashcards-back__instructions">
               <p>Click card to see the term 👇</p>
@@ -62,6 +62,11 @@ import { RouterView } from "vue-router";
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
+  }
+
+  .flashcard-container:hover {
+    transform: rotateY(180deg);
   }
 
   .flashcard-container {
@@ -71,12 +76,19 @@ import { RouterView } from "vue-router";
     height: 60%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 20px;
+    position: absolute;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
   }
 
   .flashcards-front, .flashcards-back {
+    position: absolute;
     width: 100%;
-    text-align: center;
+    height: 100%;
     margin: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 
     &__instructions {
       display: flex;
@@ -143,9 +155,15 @@ import { RouterView } from "vue-router";
       height: 10%;
       font-size: 20px;
     }
+  }
 
-    .flashcards-back__score {
-      
-    }
+  .flashcards-back {
+    // position: absolute;
+    // width: 100%;
+    // height: 100%;
+    // margin: 0;
+    // -webkit-backface-visibility: hidden;
+    // backface-visibility: hidden;
+    transform: rotateY(180deg);
   }
 </style>
