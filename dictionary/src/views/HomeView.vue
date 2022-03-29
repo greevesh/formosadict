@@ -4,6 +4,15 @@ import TheWelcome from "@/components/TheWelcome.vue";
 
 <template>
   <main>
-    <TheWelcome />
+    <BaseNavBar />
+    <TheSuggestTranslationBar />
+    <TheHeading />
+    <TheSubheading />
+    <TheSearchBar />
+    <SearchLabels />
+    <SearchResults />
+    <TheWordOfTheDay />
+    <SuggestTranslationForm />
+    <TheFooter />
   </main>
 </template>
