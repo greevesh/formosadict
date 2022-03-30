@@ -1,5 +1,5 @@
 <script setup>
-
+  import TheSuggestTranslationBar from '../components/TheSuggestTranslationBar.vue'
 </script>
 
 <template>
