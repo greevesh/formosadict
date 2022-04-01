@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<!-- <style lang="sass" scoped>
+<style lang="scss">
     .suggest-bar 
     {
         // display: flex;
@@ -26,4 +26,4 @@
             color: #2c3e50;
         }
     }
-</style> -->
+</style>

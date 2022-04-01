@@ -12,15 +12,15 @@
           </div>
 </template>
 
-<style>
-    /* .wotd {
+<style lang="scss">
+    .wotd {
     display: flex;
     justify-content: center;
     align-items: center;
     }
   
-    &__container {
-      font-size: $h2-font-size;
+    .container {
+    //   font-size: $h2-font-size;
       padding-top: 5px;
       padding-bottom: 5px;
       height: 30vh;
@@ -28,12 +28,12 @@
       border-radius: 250px;
     }
     
-    &__translation {
+    .translation {
       text-align: center;
     
       &__text:nth-child(1) {
         font-size: 25px;
         font-weight: bold;
       }
-    } */
+    }
 </style>

@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style>
+<style lang="scss">
     #searchbox-container {
         display: flex;
         justify-content: center;
@@ -25,7 +25,7 @@
         border-radius: 500px;
 
     &:focus {
-        border-color: $main-color;
+        // border-color: $main-color;
     }
 }
 

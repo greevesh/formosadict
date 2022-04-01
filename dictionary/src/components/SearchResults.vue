@@ -2,7 +2,7 @@
     <div id="hits"></div>
 </template>
 
-<style>
+<style lang="scss">
     .ais-Hits-item {
   height: 100px;
 }

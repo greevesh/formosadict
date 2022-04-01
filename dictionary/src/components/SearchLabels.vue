@@ -13,12 +13,12 @@
         </section>
 </template>
 
-<style>
+<style lang="scss">
     .labels {
   grid-template-columns: 250px 1075px 150px 1fr;
   margin-top: 154px;
   padding-left: 22px;
-  background: $main-color;
+//   background: $main-color;
   /* color: #fff; */
 
   &__text:nth-child(1) {

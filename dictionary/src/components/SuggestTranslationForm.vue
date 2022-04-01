@@ -20,11 +20,10 @@
             </section>
           </div>          
 
-        </div>
 </template>
 
-<style>
-    /* .form {
+<style lang="scss">
+    .form {
     display: flex;
     justify-content: center;
   
@@ -71,7 +70,7 @@
     &__btn {
       margin-top: 20px;
       margin-left: 8px;
-      background-color: $main-color;
+    //   background-color: $main-color;
       box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
       border: none;
       font-size: 20px;
@@ -85,5 +84,5 @@
       background-color: #1d9bf0;
     }
   }
-} */
+
 </style>
