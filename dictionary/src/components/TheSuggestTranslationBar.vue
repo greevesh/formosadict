@@ -5,9 +5,21 @@
 </template>
 
 <style lang="scss">
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
     .suggest-bar 
     {
-        // display: flex;
+        display: flex;
         justify-content: center;
         align-items: center;
         height: 7vh;
