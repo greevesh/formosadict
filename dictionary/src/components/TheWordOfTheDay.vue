@@ -1,7 +1,7 @@
 <template>
     <div id="wotd" class="wotd">
             <section class="wotd__container">
-              <h2>Word of the Day</h2>
+              <h2 class="wotd__header">Word of the Day</h2>
               <div class="wotd__translation">
                 <p style="font-weight: bold; font-size: 25px;" id="chinese" class="wotd__text">隱形</p>
                 <p id="pinyin" class="wotd__text">yǐn xíng</p>
@@ -15,26 +15,31 @@
 <style lang="scss">
 @import "./src/assets/styles/_variables.scss";
     .wotd {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-  
-    .container {
-      font-size: $h2-font-size;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      height: 30vh;
-      width: 45vw;
-      border-radius: 250px;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__container {
+            font-size: $h2-font-size;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            height: 30vh;
+            width: 45vw;
+            border-radius: 250px;
+            text-align: center;
+        }
+
+        &__header {
+            color: $header-color;
+        }
     
-    .translation {
-      text-align: center;
-    
-      &__text:nth-child(1) {
-        font-size: 25px;
-        font-weight: bold;
-      }
+        &__translation {
+        text-align: center;
+        
+        &__text:nth-child(1) {
+            font-size: 25px;
+            font-weight: bold;
+        }
     }
+}
 </style>
