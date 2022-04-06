@@ -23,6 +23,8 @@
 </template>
 
 <style lang="scss">
+@import "./src/assets/styles/_variables.scss";
+
     .form {
     display: flex;
     justify-content: center;

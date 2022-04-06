@@ -5,6 +5,8 @@
 </template>
 
 <style lang="scss">
+@import "./src/assets/styles/_variables.scss";
+
     #searchbox-container {
         display: flex;
         justify-content: center;
@@ -25,7 +27,7 @@
         border-radius: 500px;
 
     &:focus {
-        // border-color: $main-color;
+        border-color: $main-color;
     }
 }
 

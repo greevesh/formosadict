@@ -13,6 +13,7 @@
 </template>
 
 <style lang="scss">
+@import "./src/assets/styles/_variables.scss";
     .wotd {
     display: flex;
     justify-content: center;
@@ -20,7 +21,7 @@
     }
   
     .container {
-    //   font-size: $h2-font-size;
+      font-size: $h2-font-size;
       padding-top: 5px;
       padding-bottom: 5px;
       height: 30vh;
