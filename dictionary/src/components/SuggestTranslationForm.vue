@@ -26,65 +26,65 @@
 @import "./src/assets/styles/_variables.scss";
 
     .form {
-    display: flex;
-    justify-content: center;
+        display: flex;
+        justify-content: center;
   
-    &__container {
-      width: 45vw;
-      height: 50vh;
-      border-radius: 200px;
-      padding-bottom: 10px;
-    }
-  
-    &__header {
-      margin-left: 29px;
-    }
-  
-    &__paragraph {
-      text-align: center;
-    }
-  
-    &__container div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-    }
-  
-    &__label {
-      margin-left: 12px;
-    }
-  
-    &__input {
-      padding: 5px;
-      margin: 5px;
-      height: 25px;
-      font-size: 20px;
-      border-radius: 500px;
-      border: 2px #d7dbdb solid;
-    }
-  
-    &__input:focus {
-      border-color: #5cbbf6;
-      caret-color: #2c3e50;
-    }
-  
-    &__btn {
-      margin-top: 20px;
-      margin-left: 8px;
-    //   background-color: $main-color;
-      box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
-      border: none;
-      font-size: 20px;
-      font-weight: 500;
-      padding: 7px;
-      color: #fff;
-    }
-  
-    &__btn:hover {
-      cursor: pointer;
-      background-color: #1d9bf0;
-    }
+        &__container {
+            width: 45vw;
+            height: 50vh;
+            border-radius: 200px;
+            padding-bottom: 10px;
+        }
+    
+        &__header {
+            text-align: center;
+        }
+    
+        &__paragraph {
+            text-align: center;
+        }
+    
+        &__container div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    
+        &__label {
+        margin-left: 12px;
+        }
+    
+        &__input {
+        padding: 5px;
+        margin: 5px;
+        height: 25px;
+        font-size: 20px;
+        border-radius: 500px;
+        border: 2px #d7dbdb solid;
+        }
+    
+        &__input:focus {
+        border-color: #5cbbf6;
+        caret-color: #2c3e50;
+        }
+    
+        &__btn {
+        margin-top: 20px;
+        margin-left: 8px;
+        background-color: $main-color;
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
+        border: none;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 7px;
+        color: #fff;
+        }
+    
+        &__btn:hover {
+        cursor: pointer;
+        background-color: #1d9bf0;
+        }
   }
 
 </style>
