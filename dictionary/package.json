@@ -11,7 +11,8 @@
     "meilisearch": "^0.25.0",
     "vue": "^3.2.31",
     "vue-instantsearch": "^4.3.3",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vuelidate": "^0.7.7"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
