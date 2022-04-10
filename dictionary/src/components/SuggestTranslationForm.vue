@@ -1,18 +1,20 @@
+
+
 <template>
     <div id="suggest-form" class="form">
             <section class="form__container">
               <h2 class="form__header">Suggest a Translation 📘</h2>
-              <p class="form__paragraph">Please follow the format of the input placeholders if possible</p>
+              <p class="form__paragraph">Please follow the format of the input placeholders</p>
               <div>
                 <form action="">
                   <label class="form__label" for="">Traditional</label><br>
-                  <input type="text" class="form__input" placeholder="電腦" required><br>
+                  <input @input="setTraditional" :value="traditional" type="text" class="form__input" placeholder="電腦" required><br>
                   <label class="form__label" for="">Simplified</label><br>
-                  <input type="text" class="form__input" placeholder="电脑" required><br>
+                  <input @input="setSimplified" :value="simplified" type="text" class="form__input" placeholder="电脑" required><br>
                   <label class="form__label" for="">Pinyin</label><br>
-                  <input type="text" class="form__input" placeholder="Diànnǎo" required><br>
-                  <label class="form__label" for="">Definition</label><br>
-                  <input type="text" class="form__input" placeholder="computer" required><br>
+                  <input @input="setPinyin" :value="pinyin" type="text" class="form__input" placeholder="Diànnǎo" required><br>
+                  <label class="form__label" for="">English</label><br>
+                  <input @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
                   <button class="form__btn">Suggest</button>
                 </form>
               </div>
@@ -21,6 +23,58 @@
           </div>          
 
 </template>
+
+<script>
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+
+export default {
+  setup () {
+    return {
+      v$: useVuelidate()
+    }
+  },
+  data () {
+    return {
+      traditional: '',
+      simplified: '',
+      pinyin: '',
+      english: ''
+    }
+  },
+  validations () {
+    return {
+      traditional: { required },
+      simplified: { required},
+      pinyin: { required },
+      english: { required }
+    }
+  },
+  methods: {
+    setTraditional ($event) {
+      // do some silly transformation
+      this.traditional = $event.target.value
+      this.v$.traditional.$touch()
+      console.log(this.traditional)
+    },
+    setSimplified ($event) {
+      // do some silly transformation
+      this.simplified = $event.target.value
+      this.v$.simplified.$touch()
+    },
+    setPinyin ($event) {
+      // do some silly transformation
+      this.pinyin = $event.target.value
+      this.v$.pinyin.$touch()
+    },
+    setEnglish ($event) {
+      // do some silly transformation
+      this.english = $event.target.value
+      this.v$.english.$touch()
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 @import "./src/assets/styles/_variables.scss";
