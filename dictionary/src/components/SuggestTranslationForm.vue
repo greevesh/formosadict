@@ -14,7 +14,7 @@
                   <label class="form__label" for="">Pinyin</label><br>
                   <input @input="setPinyin" :value="pinyin" type="text" class="form__input" placeholder="Diànnǎo" required><br>
                   <label class="form__label" for="">English</label><br>
-                  <input @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
+                  <input @input="checkForEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
                   <button class="form__btn">Suggest</button>
                 </form>
               </div>
@@ -71,6 +71,12 @@ export default {
       // do some silly transformation
       this.english = $event.target.value
       this.v$.english.$touch()
+    },
+    checkForEnglish ($event) {
+        const MatchedEnglishWord = /^[A-Za-z]*$/.test($event.target.value)
+        if (!MatchedEnglishWord) {
+            console.log('Please type in English here')
+        }
     }
   }
 }
