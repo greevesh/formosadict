@@ -14,7 +14,7 @@
                   <label class="form__label" for="">Pinyin</label><br>
                   <input @input="setPinyin" :value="pinyin" type="text" class="form__input" placeholder="Diànnǎo" required><br>
                   <label class="form__label" for="">English</label><br>
-                  <input @input="checkForEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
+                  <input @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
                   <button class="form__btn">Suggest</button>
                 </form>
               </div>
@@ -51,11 +51,24 @@ export default {
     }
   },
   methods: {
+    checkForLatinChars ($event) {
+        const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value)
+        if (!latinCharacters) {
+            console.log('Please type latin characters here')
+        }
+    },
+    checkAgainstLatinChars ($event) {
+        const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value)
+        if (latinCharacters) {
+            console.log(`Please don't type latin characters here`)
+        }
+    },
     setTraditional ($event) {
       // do some silly transformation
       this.traditional = $event.target.value
       this.v$.traditional.$touch()
       console.log(this.traditional)
+      this.checkAgainstLatinChars($event)
     },
     setSimplified ($event) {
       // do some silly transformation
@@ -71,13 +84,8 @@ export default {
       // do some silly transformation
       this.english = $event.target.value
       this.v$.english.$touch()
+      this.checkForLatinChars($event)
     },
-    checkForEnglish ($event) {
-        const MatchedEnglishWord = /^[A-Za-z]*$/.test($event.target.value)
-        if (!MatchedEnglishWord) {
-            console.log('Please type in English here')
-        }
-    }
   }
 }
 </script>
