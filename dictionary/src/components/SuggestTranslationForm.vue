@@ -15,6 +15,8 @@
                   <input @input="setPinyin" :value="pinyin" type="text" class="form__input" placeholder="Diànnǎo" required><br>
                   <label class="form__label" for="">English</label><br>
                   <input @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
+                  <p v-if="error">{{ message }}</p>
+                  
                   <button class="form__btn">Suggest</button>
                 </form>
               </div>
@@ -50,41 +52,74 @@ export default {
       english: { required }
     }
   },
+  errors () {
+      return {
+          error: false,
+          message: ''
+      }
+  },
+//   computed: {
+//       errorMessage() {
+//           return this.error ? 
+//       }
+//   },
   methods: {
     checkForLatinChars ($event) {
         const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value)
         if (!latinCharacters) {
-            console.log('Please type latin characters here')
+            this.error = true
+            this.message = 'Please only type latin characters in the pinyin or English inputs'
         }
     },
     checkAgainstLatinChars ($event) {
         const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value)
         if (latinCharacters) {
-            console.log(`Please don't type latin characters here`)
+            this.error = true
+            this.message = `Please don't type latin characters in the Chinese inputs`
+            console.log(this.message)
+        }
+        else if ($event.target.value === '') {
+            this.error = false
+            this.message = ''
         }
     },
     setTraditional ($event) {
-      // do some silly transformation
       this.traditional = $event.target.value
       this.v$.traditional.$touch()
-      console.log(this.traditional)
       this.checkAgainstLatinChars($event)
+      console.log(this.error)
+      console.log(this.traditional)
+      if (this.traditional === '') {
+          this.error = false
+          console.log(this.error)
+      }
     },
     setSimplified ($event) {
-      // do some silly transformation
       this.simplified = $event.target.value
       this.v$.simplified.$touch()
+      this.checkAgainstLatinChars($event)
+      if (this.simplified === '') {
+          this.error = false
+          console.log(this.error)
+      }
     },
     setPinyin ($event) {
-      // do some silly transformation
       this.pinyin = $event.target.value
       this.v$.pinyin.$touch()
+      this.checkForLatinChars($event)
+      if (this.pinyin === '') {
+          this.error = false
+          console.log(this.error)
+      }
     },
     setEnglish ($event) {
-      // do some silly transformation
       this.english = $event.target.value
       this.v$.english.$touch()
       this.checkForLatinChars($event)
+      if (this.english === '') {
+          this.error = false
+          console.log(this.error)
+      }
     },
   }
 }
