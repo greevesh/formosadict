@@ -58,11 +58,6 @@ export default {
           message: ''
       }
   },
-//   computed: {
-//       errorMessage() {
-//           return this.error ? 
-//       }
-//   },
   methods: {
     checkForLatinChars ($event) {
         const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value)
@@ -83,43 +78,34 @@ export default {
             this.message = ''
         }
     },
+    falsifyError (input) {
+        if (input === '') {
+          this.error = false
+      }
+    },
     setTraditional ($event) {
       this.traditional = $event.target.value
       this.v$.traditional.$touch()
       this.checkAgainstLatinChars($event)
-      console.log(this.error)
-      console.log(this.traditional)
-      if (this.traditional === '') {
-          this.error = false
-          console.log(this.error)
-      }
+      this.falsifyError(this.traditional)
     },
     setSimplified ($event) {
       this.simplified = $event.target.value
       this.v$.simplified.$touch()
       this.checkAgainstLatinChars($event)
-      if (this.simplified === '') {
-          this.error = false
-          console.log(this.error)
-      }
+      this.falsifyError(this.simplified)
     },
     setPinyin ($event) {
       this.pinyin = $event.target.value
       this.v$.pinyin.$touch()
       this.checkForLatinChars($event)
-      if (this.pinyin === '') {
-          this.error = false
-          console.log(this.error)
-      }
+      this.falsifyError(this.pinyin)
     },
     setEnglish ($event) {
       this.english = $event.target.value
       this.v$.english.$touch()
       this.checkForLatinChars($event)
-      if (this.english === '') {
-          this.error = false
-          console.log(this.error)
-      }
+      this.falsifyError(this.english)
     },
   }
 }
