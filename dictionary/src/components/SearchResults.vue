@@ -103,6 +103,27 @@ search.start()
 </template>
 
 <style lang="scss">
+    #searchbox-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #searchbox {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        
+    }
+
+    .ais-SearchBox-input {
+        width: 720px;
+        border: 2px #d7dbdb solid;
+    }
+
+    .ais-SearchBox-submit, .ais-SearchBox-reset {
+        display: none;
+    }
+
     .ais-Hits-item {
   height: 100px;
 }
