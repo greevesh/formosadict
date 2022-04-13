@@ -7,6 +7,8 @@
               <p class="form__paragraph">Please follow the format of the input placeholders</p>
               <div>
                 <form action="">
+                  <label class="form__label" for="">Email</label><br>
+                  <input type="email" class="form__input" placeholder="johndoe@gmail.com" required maxlength="40"><br>
                   <label class="form__label" for="">Traditional</label><br>
                   <input @input="setTraditional" :value="traditional" type="text" class="form__input" placeholder="電腦" required><br>
                   <label class="form__label" for="">Simplified</label><br>
@@ -38,6 +40,7 @@ export default {
   },
   data () {
     return {
+      email: '',
       traditional: '',
       simplified: '',
       pinyin: '',
@@ -46,6 +49,7 @@ export default {
   },
   validations () {
     return {
+      email: { required },
       traditional: { required },
       simplified: { required},
       pinyin: { required },
