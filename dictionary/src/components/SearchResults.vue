@@ -120,6 +120,10 @@ search.start()
         border: 2px #d7dbdb solid;
     }
 
+    // .ais-SearchBox-input:focus {
+    //     border: 2px red solid !important;
+    // }
+
     .ais-SearchBox-submit, .ais-SearchBox-reset {
         display: none;
     }
@@ -128,9 +132,17 @@ search.start()
   height: 100px;
 }
 
+.ais-Hits {
+    background-color: #fff;
+}
+
+.ais-Hits-list {
+    list-style: none;
+}
+
 .hit-container {
   display: grid;
-  grid-template-columns: 250px 1075px 150px 1fr;
+  grid-template-columns: 233px 1075px 150px 1fr;
   font-size: 24px;
   font-weight: 500;
 
