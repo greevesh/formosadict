@@ -15,7 +15,7 @@
                   <input @input="setPinyin" :value="pinyin" type="text" class="form__input" placeholder="Diànnǎo" required><br>
                   <label class="form__label" for="">English</label><br>
                   <input @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
-                  <p v-if="error">{{ message }}</p>
+                  <p class="form__error-message" v-if="error">{{ message }}</p>
                   
                   <button class="form__btn">Suggest</button>
                 </form>
@@ -63,7 +63,7 @@ export default {
         const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value)
         if (!latinCharacters) {
             this.error = true
-            this.message = 'Please only type latin characters in the pinyin or English inputs'
+            this.message = 'Please only type latin characters in the pinyin and English inputs'
         }
     },
     checkAgainstLatinChars ($event) {
@@ -160,7 +160,7 @@ export default {
     
         &__btn {
         margin-top: 20px;
-        margin-left: 8px;
+        
         background-color: $main-color;
         box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
         border: none;
@@ -173,6 +173,10 @@ export default {
         &__btn:hover {
         cursor: pointer;
         background-color: #1d9bf0;
+        }
+
+        &__error-message {
+            color: #D8000C;
         }
   }
 
