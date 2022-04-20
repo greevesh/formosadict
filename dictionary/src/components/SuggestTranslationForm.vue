@@ -1,34 +1,34 @@
 
 
 <template>
-    <div id="suggest-form" class="form">
+    <div  id="suggest-form" class="form">
             <section class="form__container">
               <h2 class="form__header">Suggest a Translation 📘</h2>
               <p class="form__paragraph">Please follow the format of the input placeholders</p>
               <div>
-                <form action="">
-                  <label class="form__label" for="">Traditional</label><br>
-                  <input @input="setTraditional" :value="traditional" type="text" class="form__input" placeholder="電腦" required><br>
-                  <label class="form__label" for="">Simplified</label><br>
-                  <input @input="setSimplified" :value="simplified" type="text" class="form__input" placeholder="电脑" required><br>
-                  <label class="form__label" for="">Pinyin</label><br>
-                  <input @input="setPinyin" :value="pinyin" type="text" class="form__input" placeholder="Diànnǎo" required><br>
-                  <label class="form__label" for="">English</label><br>
-                  <input @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
+                <form ref="form" @submit.prevent="sendEmail">
+                  <label class="form__label">Traditional</label><br>
+                  <input name="traditional" @input="setTraditional" :value="traditional" type="text" class="form__input" placeholder="電腦" required><br>
+                  <label class="form__label">Simplified</label><br>
+                  <input name="simplified" @input="setSimplified" :value="simplified" type="text" class="form__input" placeholder="电脑" required><br>
+                  <label class="form__label">Pinyin</label><br>
+                  <input name="pinyin" @input="setPinyin" :value="pinyin" type="text" class="form__input" placeholder="Diànnǎo" required><br>
+                  <label class="form__label">English</label><br>
+                  <input name="english" @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
                   <p class="form__error-message" v-if="error">{{ message }}</p>
                   
-                  <button class="form__btn">Suggest</button>
+                  <button type="submit" value="Send" class="form__btn">Suggest</button>
                 </form>
               </div>
               
             </section>
           </div>          
-
 </template>
 
 <script>
 import useVuelidate from '@vuelidate/core'
 import { required } from '@vuelidate/validators'
+import emailjs from '@emailjs/browser'
 
 export default {
   setup () {
@@ -107,8 +107,16 @@ export default {
       this.checkForLatinChars($event)
       this.falsifyError(this.english)
     },
+    sendEmail() {
+      emailjs.sendForm('service_tfsl6fy', 'template_y9i14r9', this.$refs.form, 'MSRjmXN5q5SR9tq8I')
+        .then((result) => {
+            console.log('SUCCESS!', result.text);
+        }, (error) => {
+            console.log('FAILED...', error.text);
+        });
+    }
   }
-}
+} 
 </script>
 
 <style lang="scss">
