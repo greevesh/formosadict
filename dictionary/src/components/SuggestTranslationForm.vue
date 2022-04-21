@@ -109,6 +109,7 @@ export default {
     },
     sendEmail () {
       emailjs.sendForm('service_tfsl6fy', 'template_y9i14r9', this.$refs.form, 'MSRjmXN5q5SR9tq8I')
+      this.$refs.form.reset()
         .then((result) => {
             console.log('SUCCESS!', result.text);
         }, (error) => {
