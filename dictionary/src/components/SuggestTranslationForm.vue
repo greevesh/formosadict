@@ -1,12 +1,12 @@
 
 
 <template>
-    <div  id="suggest-form" class="form">
+    <div id="suggest-form" class="form">
             <section class="form__container">
               <h2 class="form__header">Suggest a Translation 📘</h2>
               <p class="form__paragraph">Please follow the format of the input placeholders</p>
               <div>
-                <form ref="form" @submit.prevent="sendEmail">
+                <form ref="form" @submit.prevent.once="sendEmail">
                   <label class="form__label">Traditional</label><br>
                   <input name="traditional" @input="setTraditional" :value="traditional" type="text" class="form__input" placeholder="電腦" required><br>
                   <label class="form__label">Simplified</label><br>
@@ -17,7 +17,7 @@
                   <input name="english" @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
                   <p class="form__error-message" v-if="error">{{ message }}</p>
                   
-                  <button type="submit" value="Send" class="form__btn">Suggest</button>
+                  <button type="submit" class="form__btn">Suggest</button>
                 </form>
               </div>
               
@@ -41,7 +41,7 @@ export default {
       traditional: '',
       simplified: '',
       pinyin: '',
-      english: ''
+      english: '',
     }
   },
   validations () {
@@ -107,7 +107,7 @@ export default {
       this.checkForLatinChars($event)
       this.falsifyError(this.english)
     },
-    sendEmail() {
+    sendEmail () {
       emailjs.sendForm('service_tfsl6fy', 'template_y9i14r9', this.$refs.form, 'MSRjmXN5q5SR9tq8I')
         .then((result) => {
             console.log('SUCCESS!', result.text);
