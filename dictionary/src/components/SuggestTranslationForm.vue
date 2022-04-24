@@ -15,8 +15,9 @@
                   <input name="pinyin" @input="setPinyin" :value="pinyin" type="text" class="form__input" placeholder="Diànnǎo" required><br>
                   <label class="form__label">English</label><br>
                   <input name="english" @input="setEnglish" :value="english" type="text" class="form__input" placeholder="computer" required><br>
-                  <p class="form__error-message" v-if="error">{{ message }}</p>
-                  
+                  <p class="form__error-message" v-if="error">{{ errorMessage }}</p>
+                  <p class="form__success-message" v-else-if="valid">{{ validMessage }}</p>
+
                   <button type="submit" class="form__btn">Suggest</button>
                 </form>
               </div>
@@ -52,30 +53,36 @@ export default {
       english: { required }
     }
   },
-  errors () {
-      return {
-          error: false,
-          message: ''
+  messages () {
+    return {
+      invalid: {
+        error: false,
+        errorMessage: ''
+      },
+      valid: {
+        valid: false,
+        validMessage: ''
       }
+    }
   },
   methods: {
     checkForLatinChars ($event) {
         const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value)
         if (!latinCharacters) {
             this.error = true
-            this.message = 'Please only type latin characters in the pinyin and English inputs'
+            this.errorMessage = 'Please only type latin characters in the pinyin and English inputs'
         }
     },
     checkAgainstLatinChars ($event) {
         const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value)
         if (latinCharacters) {
             this.error = true
-            this.message = `Please don't type latin characters in the Chinese inputs`
-            console.log(this.message)
+            this.errorMessage = `Please don't type latin characters in the Chinese inputs`
+            console.log(this.errorMessage)
         }
         else if ($event.target.value === '') {
             this.error = false
-            this.message = ''
+            this.errorMessage = ''
         }
     },
     falsifyError (input) {
@@ -83,41 +90,50 @@ export default {
           this.error = false
       }
     },
+    confirm (input) {
+      if (input !== '') {
+        this.valid = true
+        this.validMessage = 'All good so far! 👌'
+        console.log(this.validMessage)
+      }
+      else if (input === '' && this.error === false) {
+        this.valid = false
+      }
+    },
     setTraditional ($event) {
       this.traditional = $event.target.value
       this.v$.traditional.$touch()
       this.checkAgainstLatinChars($event)
       this.falsifyError(this.traditional)
+      this.confirm(this.traditional)
     },
     setSimplified ($event) {
       this.simplified = $event.target.value
       this.v$.simplified.$touch()
       this.checkAgainstLatinChars($event)
       this.falsifyError(this.simplified)
+      this.confirm(this.simplified)
     },
     setPinyin ($event) {
       this.pinyin = $event.target.value
       this.v$.pinyin.$touch()
       this.checkForLatinChars($event)
       this.falsifyError(this.pinyin)
+      this.confirm(this.pinyin)
     },
     setEnglish ($event) {
       this.english = $event.target.value
       this.v$.english.$touch()
       this.checkForLatinChars($event)
       this.falsifyError(this.english)
+      this.confirm(this.english)
     },
     sendEmail () {
-      emailjs.sendForm('service_tfsl6fy', 'template_y9i14r9', this.$refs.form, 'MSRjmXN5q5SR9tq8I')
-      this.$refs.form.reset()
-        .then((result) => {
-            console.log('SUCCESS!', result.text);
-        }, (error) => {
-            console.log('FAILED...', error.text);
-        });
+        emailjs.sendForm('service_tfsl6fy', 'template_y9i14r9', this.$refs.form, 'MSRjmXN5q5SR9tq8I')
+        this.$refs.form.reset()
     }
   }
-} 
+      } 
 </script>
 
 <style lang="scss">
@@ -186,6 +202,10 @@ export default {
 
         &__error-message {
             color: #D8000C;
+        }
+
+        &__success-message {
+            color: #0c6425;
         }
   }
 
