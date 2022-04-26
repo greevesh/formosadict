@@ -4,18 +4,12 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
   <header>
-
     <div class="wrapper">
-
-      <nav>
-        
-      </nav>
+      <nav></nav>
     </div>
   </header>
 
   <RouterView />
 </template>
 
-<style>
-
-</style>
+<style></style>
