@@ -61,7 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
       container: "#hits",
       templates: {
         empty: `{{#query}}
-          <p style="text-align: center">Sorry! No results found for this word</p>
+          <p class="no-results-msg">Sorry! No results found for this word</p>
         {{/query}}`,
         item: `
         <div>
@@ -132,6 +132,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 .ais-Hits-list {
   list-style: none;
+}
+
+.no-results-msg {
+  text-align: center;
+  background-color: #f5fdfc;
+  font-size: 20px;
 }
 
 .hit-container {
