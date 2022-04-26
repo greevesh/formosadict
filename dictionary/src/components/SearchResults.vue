@@ -1,74 +1,69 @@
 <script>
-    import { MeiliSearch } from 'meilisearch'
-    import translations from '../../translations/translations.json' 
-    import { instantMeiliSearch } from '@meilisearch/instant-meilisearch'
-    import instantsearch from 'instantsearch.js'
-    import { searchBox, hits } from 'instantsearch.js/es/widgets/index.js'
+import { MeiliSearch } from "meilisearch";
+import translations from "../../translations/translations.json";
+import { instantMeiliSearch } from "@meilisearch/instant-meilisearch";
+import instantsearch from "instantsearch.js";
+import { searchBox, hits } from "instantsearch.js/es/widgets/index.js";
+(async () => {
+  const client = new MeiliSearch({
+    host: "http://127.0.0.1:7700",
+  });
 
-    ;(async () => {
-        const client = new MeiliSearch({
-        host: 'http://127.0.0.1:7700'
-    })
+  // An index is where the documents are stored.
+  const index = client.index("translations");
 
-    // An index is where the documents are stored.
-    const index = client.index('translations')
+  // If the index 'movies' does not exist, Meilisearch creates it when you first add the documents.
+  let response = await index.addDocuments(translations);
 
-    // If the index 'movies' does not exist, Meilisearch creates it when you first add the documents.
-    let response = await index.addDocuments(translations)
+  console.log(response); // => { "uid": 0 }
+})();
 
-    console.log(response) // => { "uid": 0 }
-    })()
+const searchClient = instantMeiliSearch("http://127.0.0.1:7700", {
+  paginationTotalHits: 30, // default: 200.
+  placeholderSearch: false, // default: true.
+  primaryKey: "id", // default: undefined
+});
 
-    const searchClient = instantMeiliSearch(
-        'http://127.0.0.1:7700',
-        {
-            paginationTotalHits: 30, // default: 200.
-            placeholderSearch: false, // default: true.
-            primaryKey: 'id', // default: undefined
-        }
-    )
-
-    const search = instantsearch({
-  indexName: 'translations',
+const search = instantsearch({
+  indexName: "translations",
   searchClient: searchClient,
   searchFunction(helper) {
-    const labels = document.querySelector('.labels')
-    const hitsContainer = document.querySelector('#hits')
-    const secondaryContent = document.querySelector('.secondary-content')
-    const suggestBar = document.querySelector('.suggest-bar')
-    const header = document.querySelector('.header')
-    if (helper.state.query !== '') {
-      labels.style.display = 'grid'
-      hitsContainer.style.display =  ''
-      secondaryContent.style.marginTop = '50px'
-      suggestBar.style.display = 'flex'
-      header.style.marginTop = '100px'
-    }
-    else {
-      labels.style.display = 'none'
-      hitsContainer.style.display =  'none'
-      secondaryContent.style.marginTop = '200px'
-      suggestBar.style.display = 'none'
-      header.style.marginTop = '120px'
+    const labels = document.querySelector(".labels");
+    const hitsContainer = document.querySelector("#hits");
+    const secondaryContent = document.querySelector(".secondary-content");
+    const suggestBar = document.querySelector(".suggest-bar");
+    const header = document.querySelector(".header");
+    if (helper.state.query !== "") {
+      labels.style.display = "grid";
+      hitsContainer.style.display = "";
+      secondaryContent.style.marginTop = "50px";
+      suggestBar.style.display = "flex";
+      header.style.marginTop = "100px";
+    } else {
+      labels.style.display = "none";
+      hitsContainer.style.display = "none";
+      secondaryContent.style.marginTop = "200px";
+      suggestBar.style.display = "none";
+      header.style.marginTop = "120px";
     }
     helper.search();
-  }
-})
+  },
+});
 
-window.addEventListener('DOMContentLoaded', () => {
-    search.addWidgets([
-  searchBox({
-    container: '#searchbox',
-    placeholder: 'Translate English, Pinyin, Traditional or Simplified Chinese'
-  }),
-  hits({
-    container: '#hits',
-    templates: {
-      empty: 
-        `{{#query}}
+window.addEventListener("DOMContentLoaded", () => {
+  search.addWidgets([
+    searchBox({
+      container: "#searchbox",
+      placeholder:
+        "Translate English, Pinyin, Traditional or Simplified Chinese",
+    }),
+    hits({
+      container: "#hits",
+      templates: {
+        empty: `{{#query}}
           No results found for <q>{{query}}</q>
         {{/query}}`,
-      item: `
+        item: `
         <div>
           <div class="hit-container">
             <div class="hit">
@@ -86,58 +81,57 @@ window.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
       `,
-    },
-  }),
-])
+      },
+    }),
+  ]);
 
-search.start()
+  search.start();
 });
-
 </script>
 
 <template>
-    <div id="searchbox-container">
-          <div id="searchbox"></div>
-    </div>
-    <div id="hits"></div>
+  <div id="searchbox-container">
+    <div id="searchbox"></div>
+  </div>
+  <div id="hits"></div>
 </template>
 
 <style lang="scss">
-    #searchbox-container {
-        display: flex;
-        justify-content: center;
-    }
+#searchbox-container {
+  display: flex;
+  justify-content: center;
+}
 
-    #searchbox {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        
-    }
+#searchbox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
-    .ais-SearchBox-input {
-        width: 720px;
-        border: 2px #d7dbdb solid;
-    }
+.ais-SearchBox-input {
+  width: 720px;
+  border: 2px #d7dbdb solid;
+}
 
-    // .ais-SearchBox-input:focus {
-    //     border: 2px red solid !important;
-    // }
+// .ais-SearchBox-input:focus {
+//     border: 2px red solid !important;
+// }
 
-    .ais-SearchBox-submit, .ais-SearchBox-reset {
-        display: none;
-    }
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
+  display: none;
+}
 
-    .ais-Hits-item {
+.ais-Hits-item {
   height: 100px;
 }
 
 .ais-Hits {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .ais-Hits-list {
-    list-style: none;
+  list-style: none;
 }
 
 .hit-container {
