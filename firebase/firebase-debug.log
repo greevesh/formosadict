@@ -1,0 +1,109 @@
+[debug] [2022-03-20T07:06:46.775Z] ----------------------------------------------------------------------
+[debug] [2022-03-20T07:06:46.780Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\E5-576G\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2022-03-20T07:06:46.780Z] CLI Version:   10.4.0
+[debug] [2022-03-20T07:06:46.781Z] Platform:      win32
+[debug] [2022-03-20T07:06:46.781Z] Node Version:  v14.17.0
+[debug] [2022-03-20T07:06:46.783Z] Time:          Sun Mar 20 2022 15:06:46 GMT+0800 (Taipei Standard Time)
+[debug] [2022-03-20T07:06:46.783Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-20T07:06:46.922Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-20T07:06:46.923Z] > authorizing via signed-in user (harrisongreeves@gmail.com)
+[debug] [2022-03-20T07:06:46.923Z] [iam] checking project dictionary-7aa10 for permissions ["firebase.projects.get"]
+[debug] [2022-03-20T07:06:46.928Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/dictionary-7aa10:testIamPermissions [none]
+[debug] [2022-03-20T07:06:46.928Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/dictionary-7aa10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-20T07:06:48.119Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/dictionary-7aa10:testIamPermissions 200
+[debug] [2022-03-20T07:06:48.120Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/dictionary-7aa10:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-20T07:06:48.122Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dictionary-7aa10 [none]
+[debug] [2022-03-20T07:06:48.400Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dictionary-7aa10 200
+[debug] [2022-03-20T07:06:48.400Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dictionary-7aa10 {"projectId":"dictionary-7aa10","projectNumber":"983736625425","displayName":"dictionary","name":"projects/dictionary-7aa10","resources":{"hostingSite":"dictionary-7aa10","realtimeDatabaseInstance":"dictionary-7aa10-default-rtdb","storageBucket":"dictionary-7aa10.appspot.com","locationId":"asia-southeast1"},"state":"ACTIVE"}
+[info] 
+[info] === Serving from 'C:\Users\E5-576G\Desktop\Projects\eng-ch-dict'...
+[info] 
+[warn] !  Your requested "node" version "16" doesn't match your global version "14". Using node@14 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"16\" doesn't match your global version \"14\". Using node@14 from host."}}
+[debug] [2022-03-20T07:06:48.444Z] defaultcredentials: writing to file C:\Users\E5-576G\AppData\Roaming\firebase\harrisongreeves_gmail_com_application_default_credentials.json
+[debug] [2022-03-20T07:06:48.450Z] Setting GAC to C:\Users\E5-576G\AppData\Roaming\firebase\harrisongreeves_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to C:\\Users\\E5-576G\\AppData\\Roaming\\firebase\\harrisongreeves_gmail_com_application_default_credentials.json"}}
+[debug] [2022-03-20T07:06:48.451Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/dictionary-7aa10/adminSdkConfig [none]
+[debug] [2022-03-20T07:06:48.915Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/dictionary-7aa10/adminSdkConfig 200
+[debug] [2022-03-20T07:06:48.916Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/dictionary-7aa10/adminSdkConfig {"projectId":"dictionary-7aa10","databaseURL":"https://dictionary-7aa10-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"dictionary-7aa10.appspot.com","locationId":"asia-southeast1"}
+[info] i  functions: Watching "C:\Users\E5-576G\Desktop\Projects\eng-ch-dict\functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"C:\\Users\\E5-576G\\Desktop\\Projects\\eng-ch-dict\\functions\" for Cloud Functions..."}}
+[debug] [2022-03-20T07:06:48.967Z] Validating nodejs source
+[debug] [2022-03-20T07:06:54.200Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-03-20T07:06:54.201Z] Building nodejs source
+[debug] [2022-03-20T07:06:54.201Z] Analyzing nodejs backend spec
+[debug] [2022-03-20T07:11:02.642Z] File C:\Users\E5-576G\Desktop\Projects\eng-ch-dict\functions\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\E5-576G\\Desktop\\Projects\\eng-ch-dict\\functions\\index.js changed, reloading triggers"}}
+[debug] [2022-03-20T07:11:03.673Z] Validating nodejs source
+[debug] [2022-03-20T07:11:08.430Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-03-20T07:11:08.431Z] Building nodejs source
+[debug] [2022-03-20T07:11:08.431Z] Analyzing nodejs backend spec
+[info] i  functions[us-central1-scheduleJobs]: function ignored because the pubsub emulator does not exist or is not running. {"metadata":{"emulator":{"name":"functions"},"message":"function ignored because the pubsub emulator does not exist or is not running."}}
+[debug] [2022-03-20T07:39:26.449Z] File C:\Users\E5-576G\Desktop\Projects\eng-ch-dict\functions\index.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\E5-576G\\Desktop\\Projects\\eng-ch-dict\\functions\\index.js changed, reloading triggers"}}
+[debug] [2022-03-20T07:39:27.454Z] Validating nodejs source
+[debug] [2022-03-20T07:39:31.052Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-03-20T07:39:31.053Z] Building nodejs source
+[debug] [2022-03-20T07:39:31.053Z] Analyzing nodejs backend spec
