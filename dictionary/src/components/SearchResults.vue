@@ -62,7 +62,9 @@ window.addEventListener("DOMContentLoaded", () => {
       templates: {
         empty: `{{#query}}
           <p class="no-results-msg">Sorry! No results found for this word</p>
-        {{/query}}`,
+          <style>.labels { display: none !important; }</style>
+        {{/query}}
+        `,
         item: `
         <div>
           <div class="hit-container">
@@ -138,6 +140,7 @@ window.addEventListener("DOMContentLoaded", () => {
   text-align: center;
   background-color: #f5fdfc;
   font-size: 20px;
+  margin-top: 170px;
 }
 
 .hit-container {
