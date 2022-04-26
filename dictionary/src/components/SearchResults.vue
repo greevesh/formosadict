@@ -61,7 +61,7 @@ window.addEventListener("DOMContentLoaded", () => {
       container: "#hits",
       templates: {
         empty: `{{#query}}
-          No results found for <q>{{query}}</q>
+          <p style="text-align: center">Sorry! No results found for this word</p>
         {{/query}}`,
         item: `
         <div>
