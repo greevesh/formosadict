@@ -40,4 +40,14 @@
     width: 350px !important;
   }
 }
+
+@media (max-width: 400px) {
+  .ais-SearchBox-input {
+    width: 320px !important;
+  }
+
+  .ais-SearchBox-input::placeholder {
+    font-size: 11.3px;
+  }
+}
 </style>
