@@ -34,4 +34,22 @@
     grid-column: 3 / -1;
   }
 }
+
+@media (max-width: 1150px) {
+  .labels {
+    margin-top: 90px;
+  }
+}
+
+@media (max-width: 748px) {
+  .labels {
+    margin-top: 68px;
+  }
+}
+
+@media (max-width: 400px) {
+  .labels {
+    margin-top: 45px;
+  }
+}
 </style>
