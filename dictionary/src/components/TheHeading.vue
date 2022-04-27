@@ -8,4 +8,10 @@
   color: rgba(0, 0, 0, 0.88);
   text-align: center;
 }
+
+@media (max-width: 1150px) {
+  .header {
+    margin-top: 160px !important;
+  }
+}
 </style>
