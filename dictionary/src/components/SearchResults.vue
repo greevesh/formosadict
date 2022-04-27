@@ -183,6 +183,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 /* highlighted word */
 .ais-Highlight-highlighted {
-  color: #1fa030;
+  background-color: #b5e0bb;
 }
 </style>
