@@ -34,4 +34,10 @@
 .ais-SearchBox-reset {
   margin-top: 4px;
 }
+
+@media (max-width: 745px) {
+  .ais-SearchBox-input {
+    width: 350px !important;
+  }
+}
 </style>
