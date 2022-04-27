@@ -17,7 +17,7 @@
 @import "./src/assets/styles/_variables.scss";
 .labels {
   grid-template-columns: 250px 1075px 150px 1fr;
-  margin-top: 144px;
+  margin-top: 140px;
   padding-left: 22px;
   background: $main-color;
   color: #fff;
