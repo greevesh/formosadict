@@ -130,6 +130,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 .ais-Hits {
   background-color: #fff;
+  margin-top: -16px;
 }
 
 .ais-Hits-list {
