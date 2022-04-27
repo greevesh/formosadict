@@ -141,7 +141,7 @@ window.addEventListener("DOMContentLoaded", () => {
   text-align: center;
   background-color: #f5fdfc;
   font-size: 20px;
-  margin-top: 170px;
+  margin-top: 190px;
 }
 
 .hit-container {
@@ -184,5 +184,11 @@ window.addEventListener("DOMContentLoaded", () => {
 /* highlighted word */
 .ais-Highlight-highlighted {
   background-color: #b5e0bb;
+}
+
+@media (max-width: 1150px) {
+  .no-results-msg {
+    margin-top: 100px;
+  }
 }
 </style>
