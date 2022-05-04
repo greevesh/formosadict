@@ -114,14 +114,15 @@ export default {
       if (!latinCharacters) {
         this.error = true;
         this.errorMessage =
-          "Please only type latin characters in the pinyin and English inputs";
+          "Please only type latin characters in the Pinyin and English inputs. 🙎";
       }
     },
     checkAgainstLatinChars($event) {
       const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value);
       if (latinCharacters) {
         this.error = true;
-        this.errorMessage = `Please don't type latin characters in the Chinese inputs`;
+        this.errorMessage =
+          "Please don't type latin characters in the Chinese inputs. 🙎";
         console.log(this.errorMessage);
       } else if ($event.target.value === "") {
         this.error = false;

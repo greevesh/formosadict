@@ -63,7 +63,7 @@ window.addEventListener("DOMContentLoaded", () => {
       container: "#hits",
       templates: {
         empty: `{{#query}}
-          <p class="no-results-msg">Sorry! No results found for this word</p>
+          <p class="no-results-msg">Sorry! No results found. 🙈 Feel free to suggest a word below.</p>
           <style>.labels { display: none !important; }</style>
         {{/query}}
         `,
