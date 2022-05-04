@@ -27,6 +27,7 @@
   border-radius: 500px;
 
   &:focus {
+    outline: none;
     border-color: $main-color;
     text-indent: 5px;
   }
