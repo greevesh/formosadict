@@ -28,14 +28,16 @@ const search = instantsearch({
   indexName: "translations",
   searchClient: searchClient,
   searchFunction(helper) {
+    const body = document.querySelector("body");
     const labels = document.querySelector(".labels");
     const hitsContainer = document.querySelector("#hits");
     const secondaryContent = document.querySelector(".secondary-content");
     const suggestBar = document.querySelector(".suggest-bar");
     const header = document.querySelector(".header");
     if (helper.state.query !== "") {
+      body.style.overflowX = "hidden";
       labels.style.display = "grid";
-      hitsContainer.style.display = "";
+      hitsContainer.style.display = ""; // sets to default display
       secondaryContent.style.marginTop = "50px";
       suggestBar.style.display = "flex";
       header.style.marginTop = "100px";
@@ -86,6 +88,13 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     }),
   ]);
+
+  let results = document.getElementsByClassName("hit-container");
+  console.log(results);
+  document.addEventListener("DOMContentLoaded", () => {
+    const resultsArr = [...results];
+    console.log(resultsArr);
+  });
 
   search.start();
 });
@@ -146,7 +155,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 .hit-container {
   display: grid;
-  grid-template-columns: 233px 1075px 150px 1fr;
+  grid-template-columns: 15vw 70vw 25vw 1fr;
   font-size: 24px;
   font-weight: 500;
 
@@ -189,6 +198,43 @@ window.addEventListener("DOMContentLoaded", () => {
 @media (max-width: 1150px) {
   .no-results-msg {
     margin-top: 100px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hit-container {
+    grid-template-columns: 12vw 62vw 25vw 1fr;
+  }
+
+  @media (max-width: 600px) {
+    .hit-container {
+      grid-template-columns: 15vw 45vw 25vw 1fr;
+    }
+
+    .hit {
+      margin-top: 20px;
+    }
+
+    .hit:nth-child(1),
+    .hit:nth-child(2) {
+      font-size: 15px !important;
+      margin-left: -33px;
+    }
+
+    .hit:nth-child(3),
+    .hit:nth-child(4) {
+      font-size: 15px !important;
+    }
+
+    .hit:nth-child(4) {
+      margin-left: 22px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .hit-container {
+      margin-top: -16px;
+    }
   }
 }
 </style>
