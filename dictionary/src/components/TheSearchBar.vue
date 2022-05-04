@@ -28,6 +28,11 @@
 
   &:focus {
     border-color: $main-color;
+    text-indent: 5px;
+  }
+
+  &::placeholder {
+    text-indent: 5px;
   }
 }
 
@@ -38,6 +43,10 @@
 @media (max-width: 745px) {
   .ais-SearchBox-input {
     width: 350px !important;
+  }
+
+  .ais-SearchBox-input::placeholder {
+    font-size: 12px;
   }
 }
 
