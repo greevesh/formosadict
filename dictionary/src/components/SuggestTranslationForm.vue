@@ -34,7 +34,7 @@
             :value="pinyin"
             type="text"
             class="form__input"
-            placeholder="Diànnǎo"
+            placeholder="diànnǎo"
             required
           /><br />
           <label class="form__label">English</label><br />
@@ -242,8 +242,8 @@ export default {
   }
 
   &__input:focus {
-    border-color: #5cbbf6;
-    caret-color: #2c3e50;
+    outline: none;
+    border-color: $main-color;
   }
 
   &__btn {
