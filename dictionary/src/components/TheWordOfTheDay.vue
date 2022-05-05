@@ -4,7 +4,7 @@
       <h2 class="wotd__header">Word of the Day</h2>
       <div class="wotd__translation">
         <p
-          style="font-weight: bold; font-size: 25px"
+          style="font-weight: 500; font-size: 25px"
           id="chinese"
           class="wotd__text"
         >
