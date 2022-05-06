@@ -16,9 +16,10 @@
 <style lang="scss">
 @import "./src/assets/styles/_variables.scss";
 .labels {
-  grid-template-columns: 250px 1075px 150px 1fr;
+  // grid-template-columns: 250px 1075px 250px 1fr;
+  grid-template-columns: 15vw 70vw 25vw 1fr;
   margin-top: 140px;
-  padding-left: 22px;
+  padding-left: 40px;
   background: $main-color;
   color: #fff;
 
@@ -41,15 +42,41 @@
   }
 }
 
+@media (max-width: 900px) {
+  .labels {
+    grid-template-columns: 15vw 62vw 25vw 1fr;
+  }
+}
+
+@media (max-width: 780px) {
+  .labels {
+    grid-template-columns: 15vw 62vw 25vw 1fr;
+  }
+}
+
 @media (max-width: 748px) {
   .labels {
     margin-top: 68px;
   }
 }
 
+@media (max-width: 600px) {
+  .labels {
+    grid-template-columns: 22vw 52vw 25vw 1fr;
+    font-size: 12px;
+    padding-left: 5px;
+  }
+
+  .labels__text:nth-child(2) {
+    margin-left: 5px;
+  }
+}
+
 @media (max-width: 400px) {
   .labels {
     margin-top: 45px;
+    padding-left: 5px;
+    grid-template-columns: 22vw 52vw 25vw 1fr;
   }
 }
 </style>
