@@ -12,11 +12,31 @@
         </p>
         <p id="pinyin" class="wotd__text">yǐn xíng</p>
         <p id="definition" class="wotd__text">invisible</p>
-        <!-- <a href="https://twitter.com/intent/tweet?text=FormosaDict's%20word%20of%20the%20day%20is%20'wotd'" class="twitter-share-button" data-show-count="false" data-size="large"></a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+        <tweet-button></tweet-button>
+        <!-- <a
+          href="https://twitter.com/intent/tweet?text=FormosaDict's%20word%20of%20the%20day%20is%20'wotd'"
+          class="twitter-share-button"
+          data-show-count="false"
+          data-size="large"
+        ></a>
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script> -->
       </div>
     </section>
   </div>
 </template>
+
+<script>
+import TweetButton from "./TweetButton.vue";
+export default {
+  components: {
+    TweetButton
+  },
+}
+</script>
 
 <style lang="scss">
 @import "./src/assets/styles/_variables.scss";
