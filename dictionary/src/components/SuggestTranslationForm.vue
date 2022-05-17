@@ -53,7 +53,12 @@
           <!-- <p class="form__success-message">
             {{ submittedMsg }}
           </p> -->
-          <button class="form__btn" type="submit" value="Submit">
+          <button
+            :disabled="disabled"
+            :class="{ disabled: form__btn }"
+            type="submit"
+            value="Submit"
+          >
             Suggest
           </button>
         </form>
@@ -66,7 +71,7 @@
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import emailjs from "@emailjs/browser";
-import { onMounted, reactive, ref } from "vue";
+import { reactive, ref, computed, nextTick } from "vue";
 
 const state = reactive({
   traditional: "",
@@ -140,14 +145,14 @@ const setEnglish = ($event) => {
   checkForLatinChars($event);
 };
 
-const checkIfSubmissionReady = () => {
-  let inputs = Array.from(document.getElementsByClassName("form__input"));
-  inputs.forEach((input) => {
-    if (!error.value && input.value !== "") {
-      submissionReady.value = true;
-    }
-  });
-};
+const disabled = computed(
+  () =>
+    !state.traditional ||
+    !state.simplified ||
+    !state.pinyin ||
+    !state.english ||
+    error.value,
+);
 
 const submit = () => {
   if (submissionReady.value) {
