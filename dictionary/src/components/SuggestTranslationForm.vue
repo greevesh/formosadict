@@ -21,7 +21,7 @@
           <input
             name="simplified"
             @input="setSimplified"
-            :value="simplified"
+            :value="state.simplified"
             type="text"
             class="form__input"
             placeholder="电脑"
@@ -31,7 +31,7 @@
           <input
             name="pinyin"
             @input="setPinyin"
-            :value="pinyin"
+            :value="state.pinyin"
             type="text"
             class="form__input"
             placeholder="diànnǎo"
@@ -41,7 +41,7 @@
           <input
             name="english"
             @input="setEnglish"
-            :value="english"
+            :value="state.english"
             type="text"
             class="form__input"
             placeholder="computer"
@@ -102,11 +102,8 @@ const checkAgainstLatinChars = ($event) => {
     error.value = true;
     errorMsg.value =
       "Please don't type latin characters in the Chinese inputs. 🙎";
-    console.log(errorMsg);
-    console.log(error);
   } else if ($event.target.value === "" || !latinCharacters) {
     error.value = false;
-    console.log(error);
     errorMsg.value = "";
   }
 };
@@ -114,9 +111,12 @@ const checkAgainstLatinChars = ($event) => {
 const checkForLatinChars = ($event) => {
   const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value);
   if (!latinCharacters) {
-    error = true;
-    errorMsg =
+    error.value = true;
+    errorMsg.value =
       "Please only type latin characters in the Pinyin and English inputs. 🙎";
+  } else if ($event.target.value === "" || latinCharacters) {
+    error.value = false;
+    errorMsg.value = "";
   }
 };
 
@@ -127,37 +127,30 @@ const setTraditional = ($event) => {
 
 const setSimplified = ($event) => {
   state.simplified = $event.target.value;
-  // v$.simplified.$touch();
   checkAgainstLatinChars($event);
-  error = false;
 };
 
 const setPinyin = ($event) => {
   state.pinyin = $event.target.value;
-  // v$.pinyin.$touch();
   checkForLatinChars($event);
-  error = false;
 };
 
 const setEnglish = ($event) => {
   state.english = $event.target.value;
-  // v$.english.$touch();
   checkForLatinChars($event);
-  error = false;
 };
 
 const checkIfSubmissionReady = () => {
   let inputs = Array.from(document.getElementsByClassName("form__input"));
   inputs.forEach((input) => {
-    if (!error && input.value !== "") {
-      submissionReady = true;
-      console.log(input.value);
+    if (!error.value && input.value !== "") {
+      submissionReady.value = true;
     }
   });
 };
 
 const submit = () => {
-  if (submissionReady) {
+  if (submissionReady.value) {
     emailjs
       .sendForm(
         "service_tfsl6fy",
