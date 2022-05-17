@@ -11,7 +11,7 @@
           <input
             name="traditional"
             @input="setTraditional"
-            :value="traditional"
+            :value="state.traditional"
             type="text"
             class="form__input"
             placeholder="電腦"
@@ -47,15 +47,13 @@
             placeholder="computer"
             required
           /><br />
-          <p class="form__error-message" v-if="error">{{ errorMessage }}</p>
-          <p class="form__success-message" v-else-if="valid">
-            {{ validMessage }}
+          <p class="form__error-message" v-if="error">
+            {{ errorMsg }}
           </p>
-          <p class="form__success-message" v-else-if="submitted">
-            {{ formSubmittedMessage }}
-          </p>
-
-          <button type="submit" value="Submit" class="form__btn">
+          <!-- <p class="form__success-message">
+            {{ submittedMsg }}
+          </p> -->
+          <button class="form__btn" type="submit" value="Submit">
             Suggest
           </button>
         </form>
@@ -64,143 +62,123 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import useVuelidate from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 import emailjs from "@emailjs/browser";
+import { onMounted, reactive, ref } from "vue";
 
-export default {
-  setup() {
-    return {
-      v$: useVuelidate(),
-    };
-  },
-  data() {
-    return {
-      traditional: "",
-      simplified: "",
-      pinyin: "",
-      english: "",
-      isDisabled: true,
-    };
-  },
-  validations() {
-    return {
-      traditional: { required },
-      simplified: { required },
-      pinyin: { required },
-      english: { required },
-    };
-  },
-  messages() {
-    return {
-      invalid: {
-        error: false,
-        errorMessage: "",
-      },
-      valid: {
-        valid: false,
-        validMessage: "",
-      },
-      formStatus: {
-        submitted: false,
-        formSubmittedMessage: "",
-      },
-    };
-  },
-  methods: {
-    checkForLatinChars($event) {
-      const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value);
-      if (!latinCharacters) {
-        this.error = true;
-        this.errorMessage =
-          "Please only type latin characters in the Pinyin and English inputs. 🙎";
-      }
-    },
-    checkAgainstLatinChars($event) {
-      const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value);
-      if (latinCharacters) {
-        this.error = true;
-        this.errorMessage =
-          "Please don't type latin characters in the Chinese inputs. 🙎";
-        console.log(this.errorMessage);
-      } else if ($event.target.value === "") {
-        this.error = false;
-        this.errorMessage = "";
-      }
-    },
-    falsifyError(input) {
-      if (input === "") {
-        this.error = false;
-      }
-    },
-    confirm(input) {
-      if (input !== "") {
-        this.valid = true;
-        this.validMessage = "All good so far! 👌";
-        console.log(this.validMessage);
-      } else if (input === "" && this.error === false) {
-        this.valid = false;
-      }
-    },
-    setTraditional($event) {
-      this.traditional = $event.target.value;
-      this.v$.traditional.$touch();
-      this.checkAgainstLatinChars($event);
-      this.falsifyError(this.traditional);
-      this.confirm(this.traditional);
-    },
-    setSimplified($event) {
-      this.simplified = $event.target.value;
-      this.v$.simplified.$touch();
-      this.checkAgainstLatinChars($event);
-      this.falsifyError(this.simplified);
-      this.confirm(this.simplified);
-    },
-    setPinyin($event) {
-      this.pinyin = $event.target.value;
-      this.v$.pinyin.$touch();
-      this.checkForLatinChars($event);
-      this.falsifyError(this.pinyin);
-      this.confirm(this.pinyin);
-    },
-    setEnglish($event) {
-      this.english = $event.target.value;
-      this.v$.english.$touch();
-      this.checkForLatinChars($event);
-      this.falsifyError(this.english);
-      this.confirm(this.english);
-    },
-    sendEmail() {
-      emailjs
-        .sendForm(
-          "service_tfsl6fy",
-          "template_y9i14r9",
-          this.$refs.form,
-          "MSRjmXN5q5SR9tq8I"
-        )
-        .then(() => {
-          this.$refs.form.reset();
-          this.valid = false;
-          this.submitted = true;
-          this.formSubmittedMessage =
-            "Your suggested translation has been sent. It will be reviewed shortly!";
-        });
-    },
-    // isDisabled() {
-    //   if (!this.error && !this.valid) {
-    //     return true;
-    //   }
-    // },
-    logStatus() {
-      console.log(this.isDisabled);
-    },
-  },
+const state = reactive({
+  traditional: "",
+  simplified: "",
+  pinyin: "",
+  english: "",
+});
+
+// const rules = {
+//   traditional: { required },
+//   simplified: { required },
+//   pinyin: { required },
+//   english: { required },
+// };
+
+// const v$ = useVuelidate(rules, state);
+
+// onMounted(() => {
+//   return { state, v$ };
+// });
+
+let error = ref(false);
+let submissionReady = ref(false);
+let submitted = ref(false);
+
+let errorMsg = ref("");
+const submittedMsg =
+  "Your suggested translation has been sent. It will be reviewed shortly!";
+
+const checkAgainstLatinChars = ($event) => {
+  const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value);
+  if (latinCharacters && $event.target.value !== "") {
+    error.value = true;
+    errorMsg.value =
+      "Please don't type latin characters in the Chinese inputs. 🙎";
+    console.log(errorMsg);
+    console.log(error);
+  } else if ($event.target.value === "" || !latinCharacters) {
+    error.value = false;
+    console.log(error);
+    errorMsg.value = "";
+  }
+};
+
+const checkForLatinChars = ($event) => {
+  const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value);
+  if (!latinCharacters) {
+    error = true;
+    errorMsg =
+      "Please only type latin characters in the Pinyin and English inputs. 🙎";
+  }
+};
+
+const setTraditional = ($event) => {
+  state.traditional = $event.target.value;
+  checkAgainstLatinChars($event);
+};
+
+const setSimplified = ($event) => {
+  state.simplified = $event.target.value;
+  // v$.simplified.$touch();
+  checkAgainstLatinChars($event);
+  error = false;
+};
+
+const setPinyin = ($event) => {
+  state.pinyin = $event.target.value;
+  // v$.pinyin.$touch();
+  checkForLatinChars($event);
+  error = false;
+};
+
+const setEnglish = ($event) => {
+  state.english = $event.target.value;
+  // v$.english.$touch();
+  checkForLatinChars($event);
+  error = false;
+};
+
+const checkIfSubmissionReady = () => {
+  let inputs = Array.from(document.getElementsByClassName("form__input"));
+  inputs.forEach((input) => {
+    if (!error && input.value !== "") {
+      submissionReady = true;
+      console.log(input.value);
+    }
+  });
+};
+
+const submit = () => {
+  if (submissionReady) {
+    emailjs
+      .sendForm(
+        "service_tfsl6fy",
+        "template_y9i14r9",
+        $refs.form,
+        "MSRjmXN5q5SR9tq8I",
+      )
+      .then(() => {
+        $refs.form.reset();
+        submitted = true;
+      });
+  }
 };
 </script>
 
 <style lang="scss">
 @import "./src/assets/styles/_variables.scss";
+
+.disabledBtn {
+  background-color: red;
+}
 
 .form {
   display: flex;
@@ -248,7 +226,6 @@ export default {
 
   &__btn {
     margin-top: 20px;
-
     background-color: $main-color;
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
     border: none;
