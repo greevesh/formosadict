@@ -55,7 +55,7 @@
           </p> -->
           <button
             :disabled="disabled"
-            :class="{ disabled: form__btn }"
+            :class="[disabled ? 'form__btn--disabled' : 'form__btn']"
             type="submit"
             value="Submit"
           >
@@ -80,19 +80,7 @@ const state = reactive({
   english: "",
 });
 
-// const rules = {
-//   traditional: { required },
-//   simplified: { required },
-//   pinyin: { required },
-//   english: { required },
-// };
-
-// const v$ = useVuelidate(rules, state);
-
-// onMounted(() => {
-//   return { state, v$ };
-// });
-
+let isDisabled = ref(true);
 let error = ref(false);
 let submissionReady = ref(false);
 let submitted = ref(false);
@@ -231,6 +219,18 @@ const submit = () => {
     font-weight: 500;
     padding: 7px;
     color: #fff;
+  }
+
+  &__btn--disabled {
+    margin-top: 20px;
+    background-color: $main-color;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 7px;
+    color: #fff;
+    opacity: 0.7;
   }
 
   &__btn:hover {
