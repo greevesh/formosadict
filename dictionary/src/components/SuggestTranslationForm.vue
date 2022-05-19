@@ -10,45 +10,74 @@
           <label class="form__label">Traditional</label><br />
           <input
             name="traditional"
-            @input="setTraditional"
-            :value="state.traditional"
+            @input="validateTraditionalInputField"
+            :value="inputFields.traditional"
             type="text"
             class="form__input"
+            :class="[
+              inputFields.traditional !== '' && errorStates.traditional
+                ? 'form__input--error'
+                : '',
+            ]"
             placeholder="電腦"
             required
           /><br />
           <label class="form__label">Simplified</label><br />
           <input
             name="simplified"
-            @input="setSimplified"
-            :value="state.simplified"
+            @input="validateSimplifiedInputField"
+            :value="inputFields.simplified"
             type="text"
             class="form__input"
+            :class="[
+              inputFields.simplified !== '' && errorStates.simplified
+                ? 'form__input--error'
+                : '',
+            ]"
             placeholder="电脑"
             required
           /><br />
           <label class="form__label">Pinyin</label><br />
           <input
             name="pinyin"
-            @input="setPinyin"
-            :value="state.pinyin"
+            @input="validatePinyinInputField"
+            :value="inputFields.pinyin"
             type="text"
             class="form__input"
+            :class="[
+              inputFields.pinyin !== '' && errorStates.pinyin
+                ? 'form__input--error'
+                : '',
+            ]"
             placeholder="diànnǎo"
             required
           /><br />
           <label class="form__label">English</label><br />
           <input
             name="english"
-            @input="setEnglish"
-            :value="state.english"
+            @input="validateEnglishInputField"
+            :value="inputFields.english"
             type="text"
             class="form__input"
+            :class="[
+              inputFields.english !== '' && errorStates.english
+                ? 'form__input--error'
+                : '',
+            ]"
             placeholder="computer"
             required
           /><br />
-          <p class="form__error-message" v-if="error">
-            {{ errorMsg }}
+          <p
+            class="form__error-message"
+            v-if="errorStates.traditional || errorStates.simplified"
+          >
+            {{ errorMessages.latinCharacters }}
+          </p>
+          <p
+            class="form__error-message"
+            v-if="errorStates.pinyin || errorStates.pinyin"
+          >
+            {{ errorMessages.noLatinCharacters }}
           </p>
           <!-- <p class="form__success-message">
             {{ submittedMsg }}
@@ -73,11 +102,23 @@ import { required } from "@vuelidate/validators";
 import emailjs from "@emailjs/browser";
 import { reactive, ref, computed, nextTick } from "vue";
 
-const state = reactive({
+const inputFields = reactive({
   traditional: "",
   simplified: "",
   pinyin: "",
   english: "",
+});
+
+const errorStates = reactive({
+  traditional: false,
+  simplified: false,
+  pinyin: false,
+  english: false,
+});
+
+const errorMessages = reactive({
+  latinCharacters: "",
+  noLatinCharacters: "",
 });
 
 let isDisabled = ref(true);
@@ -89,25 +130,65 @@ let errorMsg = ref("");
 const submittedMsg =
   "Your suggested translation has been sent. It will be reviewed shortly!";
 
-const checkAgainstLatinChars = ($event) => {
-  const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value);
-  if (latinCharacters && $event.target.value !== "") {
-    error.value = true;
-    errorMsg.value =
-      "Please don't type latin characters in the Chinese inputs. 🙎";
-  } else if ($event.target.value === "" || !latinCharacters) {
-    error.value = false;
-    errorMsg.value = "";
+const validateTraditionalInputField = (input) => {
+  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
+  inputFields.traditional = input.target.value;
+  if (latinCharacters && inputFields.traditional !== "") {
+    errorStates.traditional = true;
+    errorMessages.latinCharacters =
+      "Please don't type latin characters in the Chinese input fields.";
+  } else if (inputFields.traditional === "" || !latinCharacters) {
+    errorStates.traditional = false;
+    errorMessages.latinCharacters = "";
   }
 };
 
-const checkForLatinChars = ($event) => {
-  const latinCharacters = /^[A-Za-z0-9]*$/.test($event.target.value);
+const validateSimplifiedInputField = (input) => {
+  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
+  inputFields.simplified = input.target.value;
+  if (latinCharacters && inputFields.simplified !== "") {
+    errorStates.simplified = true;
+    errorMessages.latinCharacters =
+      "Please don't type latin characters in the Chinese input fields.";
+  } else if (inputFields.simplified === "" || !latinCharacters) {
+    errorStates.simplified = false;
+    errorMessages.latinCharacters = "";
+  }
+};
+
+const validatePinyinInputField = (input) => {
+  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
+  inputFields.pinyin = input.target.value;
+  if (!latinCharacters && inputFields.pinyin !== "") {
+    errorStates.pinyin = true;
+    errorMessages.noLatinCharacters =
+      "Please only type latin characters in the Pinyin and English input fields.";
+  } else if (inputFields.pinyin === "" || latinCharacters) {
+    errorStates.pinyin = false;
+    errorMessages.noLatinCharacters = "";
+  }
+};
+
+const validateEnglishInputField = (input) => {
+  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
+  inputFields.english = input.target.value;
+  if (!latinCharacters && inputFields.english !== "") {
+    errorStates.english = true;
+    errorMessages.noLatinCharacters =
+      "Please only type latin characters in the Pinyin and English input fields.";
+  } else if (inputFields.english === "" || latinCharacters) {
+    errorStates.english = false;
+    errorMessages.noLatinCharacters = "";
+  }
+};
+
+const checkForLatinChars = (input) => {
+  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
   if (!latinCharacters) {
     error.value = true;
     errorMsg.value =
-      "Please only type latin characters in the Pinyin and English inputs. 🙎";
-  } else if ($event.target.value === "" || latinCharacters) {
+      "Please only type latin characters in the Pinyin and English input fields.";
+  } else if (input.target.value === "" || latinCharacters) {
     error.value = false;
     errorMsg.value = "";
   }
@@ -208,6 +289,11 @@ const submit = () => {
   &__input:focus {
     outline: none;
     border-color: $main-color;
+  }
+
+  &__input--error,
+  &__input--error:focus {
+    border: 2px #d8000c solid;
   }
 
   &__btn {
