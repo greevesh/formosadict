@@ -67,22 +67,8 @@
             placeholder="computer"
             required
           /><br />
-          <p
-            class="form__error-message"
-            v-if="errorStates.traditional || errorStates.simplified"
-          >
-            {{ errorMessages.latinCharacters }}
-          </p>
-          <p
-            class="form__error-message"
-            v-if="errorStates.pinyin || errorStates.pinyin"
-          >
-            {{ errorMessages.noLatinCharacters }}
-          </p>
-          <!-- <p class="form__success-message">
-            {{ submittedMsg }}
-          </p> -->
           <button
+            @click="submit"
             :disabled="disabled"
             :class="[disabled ? 'form__btn--disabled' : 'form__btn']"
             type="submit"
@@ -90,6 +76,23 @@
           >
             Suggest
           </button>
+          <span class="form__messages">
+            <p
+            class="form__messages messages--error"
+            v-if="errorStates.traditional || errorStates.simplified"
+          >
+            {{ errorMessages.latinCharacters }}
+          </p>
+          <p
+            class="form__error messages--error"
+            v-if="errorStates.pinyin || errorStates.english"
+          >
+            {{ errorMessages.noLatinCharacters }}
+          </p>
+          <!-- <p class="form__messages messages--success">
+            {{ submittedMsg }}
+          </p> -->
+          </span>
         </form>
       </div>
     </section>
@@ -297,7 +300,7 @@ const submit = () => {
   }
 
   &__btn {
-    margin-top: 20px;
+    margin-top: 8px;
     background-color: $main-color;
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
     border: none;
@@ -308,7 +311,7 @@ const submit = () => {
   }
 
   &__btn--disabled {
-    margin-top: 20px;
+    margin-top: 8px;
     background-color: $main-color;
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
     border: none;
@@ -324,11 +327,21 @@ const submit = () => {
     background-color: #1d9bf0;
   }
 
-  &__error-message {
-    color: #d8000c;
+  &__messages {
+    margin-top: 10px;
+    font-size: 15px;
   }
 
-  &__success-message {
+  &__messages .messages--error {
+    color: #d8000c;
+    position: absolute;
+  }
+
+  &__messages .messages--error:nth-child(2) {
+    margin-top: 35px;
+  }
+
+  &__messages .messages--success {
     color: #0c6425;
   }
 }
