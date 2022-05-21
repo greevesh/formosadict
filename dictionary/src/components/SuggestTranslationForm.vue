@@ -142,7 +142,9 @@ const validateTraditionalInputField = (input) => {
       "Please don't type latin characters in the Chinese input fields.";
   } else if (inputFields.traditional === "" || !latinCharacters) {
     errorStates.traditional = false;
-    errorMessages.latinCharacters = "";
+    if (!errorStates.simplified) {
+      errorMessages.latinCharacters = "";
+    }
   }
 };
 
@@ -155,7 +157,9 @@ const validateSimplifiedInputField = (input) => {
       "Please don't type latin characters in the Chinese input fields.";
   } else if (inputFields.simplified === "" || !latinCharacters) {
     errorStates.simplified = false;
-    errorMessages.latinCharacters = "";
+    if (!errorStates.traditional) {
+      errorMessages.latinCharacters = "";
+    }
   }
 };
 
@@ -168,7 +172,9 @@ const validatePinyinInputField = (input) => {
       "Please only type latin characters in the Pinyin and English input fields.";
   } else if (inputFields.pinyin === "" || latinCharacters) {
     errorStates.pinyin = false;
-    errorMessages.noLatinCharacters = "";
+    if (!errorStates.english) {
+      errorMessages.noLatinCharacters = "";
+    }
   }
 };
 
@@ -181,7 +187,9 @@ const validateEnglishInputField = (input) => {
       "Please only type latin characters in the Pinyin and English input fields.";
   } else if (inputFields.english === "" || latinCharacters) {
     errorStates.english = false;
-    errorMessages.noLatinCharacters = "";
+    if (!errorStates.pinyin) {
+      errorMessages.noLatinCharacters = "";
+    }
   }
 };
 
