@@ -132,7 +132,7 @@ const submittedMessage =
   "Your suggested translation has been sent. It will be reviewed shortly!";
 
 const validateTraditionalInputField = (input) => {
-  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
+  const latinCharacters = /^[A-Za-z0-9\s]*$/.test(input.target.value);
   inputFields.traditional = input.target.value;
   if (latinCharacters && inputFields.traditional !== "") {
     errorStates.traditional = true;
@@ -147,7 +147,7 @@ const validateTraditionalInputField = (input) => {
 };
 
 const validateSimplifiedInputField = (input) => {
-  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
+  const latinCharacters = /^[A-Za-z0-9\s]*$/.test(input.target.value);
   inputFields.simplified = input.target.value;
   if (latinCharacters && inputFields.simplified !== "") {
     errorStates.simplified = true;
@@ -162,7 +162,7 @@ const validateSimplifiedInputField = (input) => {
 };
 
 const validatePinyinInputField = (input) => {
-  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
+  const latinCharacters = /^[A-Za-z0-9\s]*$/.test(input.target.value);
   inputFields.pinyin = input.target.value;
   if (!latinCharacters && inputFields.pinyin !== "") {
     errorStates.pinyin = true;
@@ -177,7 +177,7 @@ const validatePinyinInputField = (input) => {
 };
 
 const validateEnglishInputField = (input) => {
-  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
+  const latinCharacters = /^[A-Za-z0-9\s]*$/.test(input.target.value);
   inputFields.english = input.target.value;
   if (!latinCharacters && inputFields.english !== "") {
     errorStates.english = true;
