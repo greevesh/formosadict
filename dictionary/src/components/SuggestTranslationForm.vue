@@ -6,7 +6,7 @@
         Please follow the format of the input placeholders
       </p>
       <div>
-        <form ref="form" @submit.prevent.once="sendEmail">
+        <form ref="form" @submit.prevent.once="submit">
           <label class="form__label">Traditional</label><br />
           <input
             name="traditional"
@@ -68,7 +68,6 @@
             required
           /><br />
           <button
-            @click="submit"
             :disabled="disabled"
             :class="[disabled ? 'form__btn--disabled' : 'form__btn']"
             type="submit"
@@ -78,20 +77,20 @@
           </button>
           <span class="form__messages">
             <p
-            class="form__messages messages--error"
-            v-if="errorStates.traditional || errorStates.simplified"
-          >
-            {{ errorMessages.latinCharacters }}
-          </p>
-          <p
-            class="form__error messages--error"
-            v-if="errorStates.pinyin || errorStates.english"
-          >
-            {{ errorMessages.noLatinCharacters }}
-          </p>
-          <!-- <p class="form__messages messages--success">
-            {{ submittedMsg }}
-          </p> -->
+              class="form__messages messages--error"
+              v-if="errorStates.traditional || errorStates.simplified"
+            >
+              {{ errorMessages.latinCharacters }}
+            </p>
+            <p
+              class="form__error messages--error"
+              v-if="errorStates.pinyin || errorStates.english"
+            >
+              {{ errorMessages.noLatinCharacters }}
+            </p>
+            <p class="form__messages messages--success" v-if="submitted">
+              {{ submittedMessage }}
+            </p>
           </span>
         </form>
       </div>
@@ -126,11 +125,10 @@ const errorMessages = reactive({
 
 let isDisabled = ref(true);
 let error = ref(false);
-let submissionReady = ref(false);
 let submitted = ref(false);
 
 let errorMsg = ref("");
-const submittedMsg =
+const submittedMessage =
   "Your suggested translation has been sent. It will be reviewed shortly!";
 
 const validateTraditionalInputField = (input) => {
@@ -351,6 +349,7 @@ const submit = () => {
 
   &__messages .messages--success {
     color: #0c6425;
+    position: absolute;
   }
 }
 </style>
