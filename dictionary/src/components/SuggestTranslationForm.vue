@@ -232,20 +232,35 @@ const disabled = computed(
     error.value,
 );
 
-const submit = () => {
-  if (submissionReady.value) {
-    emailjs
-      .sendForm(
-        "service_tfsl6fy",
-        "template_y9i14r9",
-        $refs.form,
-        "MSRjmXN5q5SR9tq8I",
-      )
-      .then(() => {
-        $refs.form.reset();
-        submitted = true;
-      });
-  }
+<script>
+import emailjs from "@emailjs/browser";
+
+export default {
+  data() {
+    return {
+      submitted: true,
+    };
+  },
+  methods: {
+    submit() {
+      emailjs
+        .sendForm(
+          "service_tfsl6fy",
+          "template_y9i14r9",
+          this.$refs.form,
+          "MSRjmXN5q5SR9tq8I",
+        )
+        .then(() => {
+          this.submitted = true;
+          setTimeout(() => {
+            this.submitted = false;
+          }, 3000);
+          setTimeout(() => {
+            this.$refs.form.reset();
+          }, 4000);
+        });
+    },
+  },
 };
 </script>
 
