@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "dictionary",
   "version": "0.0.0",
   "scripts": {
@@ -12,12 +13,10 @@
     "@meilisearch/instant-meilisearch": "^0.7.0",
     "@vuelidate/core": "^2.0.0-alpha.40",
     "@vuelidate/validators": "^2.0.0-alpha.28",
-    "axios": "^0.26.1",
-    "dotenv": "^16.0.0",
     "instantsearch.js": "^4.7.0",
     "meilisearch": "^0.25.0",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.12"
+    "vue-share-buttons": "^1.1.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
