@@ -49,7 +49,7 @@
                 ? 'form__input--error'
                 : '',
             ]"
-            placeholder="diànnǎo"
+            placeholder="dian(4)nao(3)"
             required
           /><br />
           <label class="form__label">English</label><br />
