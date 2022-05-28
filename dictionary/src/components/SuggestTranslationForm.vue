@@ -6,7 +6,7 @@
         Please follow the format of the input placeholders
       </p>
       <div>
-        <form ref="form" @submit.prevent.once="submit">
+        <form ref="form" @submit.prevent="submit">
           <label class="form__label">Traditional</label><br />
           <input
             name="traditional"
