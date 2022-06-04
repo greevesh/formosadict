@@ -33,20 +33,17 @@ const search = instantsearch({
     const hitsContainer = document.querySelector("#hits");
     const secondaryContent = document.querySelector(".secondary-content");
     const suggestBar = document.querySelector(".suggest-bar");
-    const header = document.querySelector(".header");
     if (helper.state.query !== "") {
       body.style.overflowX = "hidden";
       labels.style.display = "grid";
       hitsContainer.style.display = ""; // sets to default display
       secondaryContent.style.marginTop = "50px";
       suggestBar.style.display = "flex";
-      header.style.marginTop = "100px";
     } else {
       labels.style.display = "none";
       hitsContainer.style.display = "none";
       secondaryContent.style.marginTop = "200px";
       suggestBar.style.display = "none";
-      header.style.marginTop = "120px";
     }
     helper.search();
   },
