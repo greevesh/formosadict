@@ -39,7 +39,7 @@
 
 @media (max-width: 1150px) {
   .labels {
-    margin-top: 90px;
+    margin-top: 38px;
   }
 }
 
@@ -57,7 +57,7 @@
 
 @media (max-width: 748px) {
   .labels {
-    margin-top: 68px;
+    margin-top: 17px;
   }
 }
 
