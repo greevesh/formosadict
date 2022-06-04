@@ -24,7 +24,7 @@ import SuggestTranslationForm from "./SuggestTranslationForm.vue";
   }
 
   #suggest-form {
-    margin-top: 80px;
+    margin-top: 120px;
   }
 }
 
