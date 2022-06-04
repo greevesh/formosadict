@@ -18,10 +18,11 @@
 .labels {
   // grid-template-columns: 250px 1075px 250px 1fr;
   grid-template-columns: 15vw 70vw 25vw 1fr;
-  margin-top: 140px;
+  margin-top: 48px;
   padding-left: 40px;
   background: $main-color;
   color: #fff;
+  height: 25vh;
 
   &__text:nth-child(1) {
     grid-column: 1 / 2;
