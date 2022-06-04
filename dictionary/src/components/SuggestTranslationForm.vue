@@ -101,10 +101,7 @@
 </template>
 
 <script setup>
-import useVuelidate from "@vuelidate/core";
-import { required } from "@vuelidate/validators";
-import emailjs from "@emailjs/browser";
-import { reactive, ref, computed, nextTick } from "vue";
+import { reactive, ref, computed } from "vue";
 
 const inputFields = reactive({
   traditional: "",
