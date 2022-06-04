@@ -72,8 +72,10 @@
             :class="[disabled ? 'form__btn--disabled' : 'form__btn']"
             type="submit"
             value="Submit"
+            @click="clear"
           >
             Suggest
+            <i v-if="showSpinner" class="fa fa-spinner fa-spin"></i>
           </button>
           <span class="form__messages">
             <p
@@ -238,11 +240,13 @@ import emailjs from "@emailjs/browser";
 export default {
   data() {
     return {
-      submitted: true,
+      submitted: false,
+      showSpinner: false,
     };
   },
   methods: {
     submit() {
+      this.showSpinner = true;
       emailjs
         .sendForm(
           "service_tfsl6fy",
@@ -252,6 +256,7 @@ export default {
         )
         .then(() => {
           this.submitted = true;
+          this.showSpinner = false;
           setTimeout(() => {
             this.submitted = false;
           }, 3000);
