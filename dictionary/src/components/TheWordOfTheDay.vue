@@ -3,27 +3,10 @@
     <section class="wotd__container">
       <h2 class="wotd__header">Word of the Day</h2>
       <div class="wotd__translation">
-        <p
-          style="font-weight: 500; font-size: 25px"
-          id="chinese"
-          class="wotd__text"
-        >
-          隱形
-        </p>
-        <p id="pinyin" class="wotd__text">yǐn xíng</p>
-        <p id="definition" class="wotd__text">invisible</p>
+        <p id="chinese">隱形</p>
+        <p>yǐn xíng</p>
+        <p>invisible</p>
         <tweet-button></tweet-button>
-        <!-- <a
-          href="https://twitter.com/intent/tweet?text=FormosaDict's%20word%20of%20the%20day%20is%20'wotd'"
-          class="twitter-share-button"
-          data-show-count="false"
-          data-size="large"
-        ></a>
-        <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          charset="utf-8"
-        ></script> -->
       </div>
     </section>
   </div>
@@ -62,9 +45,9 @@ export default {
   &__translation {
     text-align: center;
 
-    &__text:nth-child(1) {
+    #chinese {
       font-size: 25px;
-      font-weight: bold;
+      font-weight: 500;
     }
   }
 }
