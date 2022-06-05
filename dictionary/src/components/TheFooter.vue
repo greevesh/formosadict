@@ -1,15 +1,15 @@
 <template>
-    <section>
-          <footer class="footer">
-            <p>Copyright © 2022 FormosaDict</p>
-          </footer>
-        </section>
+  <section>
+    <footer class="footer">
+      <p>Copyright © 2022 FormosaDict</p>
+    </footer>
+  </section>
 </template>
 
 <style lang="scss">
 @import "./src/assets/styles/_variables.scss";
 
-    .footer {
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
