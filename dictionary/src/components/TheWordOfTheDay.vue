@@ -16,9 +16,9 @@
 import TweetButton from "./TweetButton.vue";
 export default {
   components: {
-    TweetButton
+    TweetButton,
   },
-}
+};
 </script>
 
 <style lang="scss">
