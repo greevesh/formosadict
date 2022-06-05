@@ -11,8 +11,6 @@
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "@meilisearch/instant-meilisearch": "^0.7.0",
-    "@vuelidate/core": "^2.0.0-alpha.40",
-    "@vuelidate/validators": "^2.0.0-alpha.28",
     "instantsearch.js": "^4.7.0",
     "meilisearch": "^0.25.0",
     "vue": "^3.2.31",
