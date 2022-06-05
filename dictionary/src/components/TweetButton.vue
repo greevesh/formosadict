@@ -6,8 +6,7 @@
       target="_blank"
       data-show-count="false"
       data-size="large"
-      >Tweet
-      &nbsp;
+      >Tweet &nbsp;
       <i class="fa-brands fa-twitter"></i>
     </a>
   </div>
