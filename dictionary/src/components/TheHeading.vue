@@ -1,17 +1,28 @@
 <template>
-  <h1 class="header">FormosaDict</h1>
+  <div class="logo-container">
+    <img
+      class="logo"
+      src="../assets/images/brand-logo.png"
+      alt="formosadict-brand-logo"
+    />
+  </div>
 </template>
 
 <style scoped>
-.header {
-  font-size: 32px;
-  color: rgba(0, 0, 0, 0.88);
-  text-align: center;
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+
+.logo {
+  height: 150px;
+  width: 200px;
 }
 
 @media (max-width: 1150px) {
-  .header {
-    margin-top: 160px !important;
+  .logo {
+    margin-top: 10px !important;
   }
 }
 </style>
