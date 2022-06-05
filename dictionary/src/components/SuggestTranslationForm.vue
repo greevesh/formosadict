@@ -190,46 +190,18 @@ const validateEnglishInputField = (input) => {
   }
 };
 
-const checkForLatinChars = (input) => {
-  const latinCharacters = /^[A-Za-z0-9]*$/.test(input.target.value);
-  if (!latinCharacters) {
-    error.value = true;
-    errorMsg.value =
-      "Please only type latin characters in the Pinyin and English input fields.";
-  } else if (input.target.value === "" || latinCharacters) {
-    error.value = false;
-    errorMsg.value = "";
-  }
-};
-
-const setTraditional = ($event) => {
-  state.traditional = $event.target.value;
-  checkAgainstLatinChars($event);
-};
-
-const setSimplified = ($event) => {
-  state.simplified = $event.target.value;
-  checkAgainstLatinChars($event);
-};
-
-const setPinyin = ($event) => {
-  state.pinyin = $event.target.value;
-  checkForLatinChars($event);
-};
-
-const setEnglish = ($event) => {
-  state.english = $event.target.value;
-  checkForLatinChars($event);
-};
-
 const disabled = computed(
   () =>
-    !state.traditional ||
-    !state.simplified ||
-    !state.pinyin ||
-    !state.english ||
-    error.value,
+    !inputFields.traditional ||
+    !inputFields.simplified ||
+    !inputFields.pinyin ||
+    !inputFields.english ||
+    errorStates.traditional ||
+    errorStates.simplified ||
+    errorStates.pinyin ||
+    errorStates.english,
 );
+</script>
 
 <script>
 import emailjs from "@emailjs/browser";
