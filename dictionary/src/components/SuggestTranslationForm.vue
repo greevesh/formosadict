@@ -241,10 +241,6 @@ export default {
 <style lang="scss">
 @import "./src/assets/styles/_variables.scss";
 
-.disabledBtn {
-  background-color: red;
-}
-
 .form {
   display: flex;
   justify-content: center;
