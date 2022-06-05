@@ -1,7 +1,6 @@
 <template>
   <h3 class="subheading">
-    Soon to be a Taiwanese-Mandarin Chinese-English dictionary for expats in
-    Taiwan
+    An English-Chinese Dictionary for Taiwanese Mandarin Learners
   </h3>
 </template>
 
