@@ -94,6 +94,7 @@ window.addEventListener("DOMContentLoaded", () => {
   <div id="searchbox-container">
     <div id="searchbox"></div>
   </div>
+   <!-- still need to upgrade to Vue 3 InstantSearch -->
   <div id="hits"></div>
 </template>
 

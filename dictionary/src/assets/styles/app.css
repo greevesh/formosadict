@@ -12,7 +12,8 @@ body {
     justify-content: center;
     background-image: url('/src/assets/images/taiwan-banner.jpg');
     background-size: cover;
-    height: 59vh;
+    height: 450px;
+    width: auto;
 }
 
 main {
