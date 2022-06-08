@@ -5,6 +5,14 @@ import vue from "@vitejs/plugin-vue";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      external: [
+        // remove this once you need to use vue-router in prod
+        "vue-router",
+      ]
+    }
+  },
   plugins: [vue()],
   resolve: {
     alias: {
