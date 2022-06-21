@@ -1,6 +1,6 @@
 
+<p align="center"><img style="height: 300px; width: 350px;" src="https://user-images.githubusercontent.com/37548569/173612790-808e5994-c8e2-4593-b02a-b7c2e78f67de.png"></p>
 
-<img style="height: 300px; width: 350px;" src="https://user-images.githubusercontent.com/37548569/173612790-808e5994-c8e2-4593-b02a-b7c2e78f67de.png">
 
 <h1>FormosaDict</h1>		    
 <h2>Why This Exists</h2>
