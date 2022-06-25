@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: [
-        // remove this once you need to use vue-router in prod
+        // remove this once you need to use vue-router in production
         "vue-router",
       ]
     }
