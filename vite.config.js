@@ -7,12 +7,6 @@ import vue from "@vitejs/plugin-vue";
 export default defineConfig({
   build: {
     rollupOptions: {
-      external: [
-        // remove this once you need to use vue-router in production
-        "vue-router",
-      ]
-    }
-  },
   plugins: [vue()],
   resolve: {
     alias: {
