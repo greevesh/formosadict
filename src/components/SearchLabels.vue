@@ -18,7 +18,7 @@
 .labels {
   // grid-template-columns: 250px 1075px 250px 1fr;
   grid-template-columns: 15vw 70vw 25vw 1fr;
-  margin-top: 48px;
+  margin-top: 98px;
   padding-left: 40px;
   background: $main-color;
   color: #fff;

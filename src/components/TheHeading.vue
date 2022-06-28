@@ -12,7 +12,7 @@
 .logo-container {
   display: flex;
   justify-content: center;
-  margin-top: 90px;
+  margin-top: 40px;
 }
 
 .logo {

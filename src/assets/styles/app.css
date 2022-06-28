@@ -16,6 +16,6 @@ body {
     width: auto;
 }
 
-main {
-    width: 100%;
+.wrapper {
+    width: 100vw;
 }

@@ -1,14 +1,11 @@
 <script setup>
-  import HomeViewVue from './views/HomeView.vue';
+import HomeViewVue from "./views/HomeView.vue";
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <HomeViewVue></HomeViewVue>
-    </div>
-  </header>
-
+  <div class="wrapper">
+    <HomeViewVue></HomeViewVue>
+  </div>
 </template>
 
 <style></style>

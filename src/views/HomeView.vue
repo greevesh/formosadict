@@ -1,5 +1,4 @@
 <script setup>
-// import BaseNavBar from '../components/BaseNavbar.vue'
 import TheSuggestTranslationBar from "../components/TheSuggestTranslationBar.vue";
 import TheHeading from "../components/TheHeading.vue";
 import TheSubHeading from "../components/TheSubHeading.vue";
@@ -11,15 +10,12 @@ import TheFooter from "../components/TheFooter.vue";
 </script>
 
 <template>
-  <main>
-    <!-- <BaseNavBar /> -->
-    <TheSuggestTranslationBar />
-    <TheHeading />
-    <TheSubHeading />
-    <TheSearchBar />
-    <SearchLabels />
-    <SearchResults />
-    <SecondaryContent />
-    <TheFooter />
-  </main>
+  <TheSuggestTranslationBar />
+  <TheHeading />
+  <TheSubHeading />
+  <TheSearchBar />
+  <SearchLabels />
+  <SearchResults />
+  <SecondaryContent />
+  <TheFooter />
 </template>
