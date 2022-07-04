@@ -34,6 +34,7 @@
 											exclusive to China are accompanied with a panda
 											emoji and the initials 'CH' (for political reasons, flag emojis are unavailable for Windows users).
 										</li>
+										<img src="/src/assets/images/readme/taiwan-china-mandarin.png"></img>
 									</ul>
 									<h3>Other Advantages</h3>
 									<ul>
@@ -42,3 +43,11 @@
 											also has a much more modern and minimalistic UI/UX.
 										</li>
 									</ul>
+
+
+./meilisearch --master-key="MTA4YjkyMjk2ZjhkNDllZTM0MTRjNTdj"
+curl \
+  -X GET 'http://localhost:7700/keys' \
+  -H 'Authorization: Bearer MTA4YjkyMjk2ZjhkNDllZTM0MTRjNTdj'
+
+{"results":[{"description":"Default Search API Key (Use it to search from the frontend)","key":"A8IMqTAF6d58877c6930b4f54efcbe7b1d8a84edcee4b8e665f4aade4ec890f88ee12df6","actions":["search"],"indexes":["*"],"expiresAt":null,"createdAt":"2022-01-30T14:38:31Z","updatedAt":"2022-01-30T14:38:31Z"},{"description":"Default Admin API Key (Use it for all other operations. Caution! Do not use it on a public frontend)","key":"sPYSmE08706e9d4fb8bfdc20c98e69840d48daadf66ef31f630501282ab35302ecc5aef0","actions":["*"],"indexes":["*"],"expiresAt":null,"createdAt":"2022-01-30T14:38:31Z","updatedAt":"2022-01-30T14:38:31Z"}]}
