@@ -34,6 +34,7 @@
 											exclusive to China are accompanied with a panda
 											emoji and the initials 'CH' (for political reasons, flag emojis are unavailable for Windows users).
 										</li>
+										<br></br>
 										<img src="/src/assets/images/readme/taiwan-china-mandarin.png"></img>
 									</ul>
 									<h3>Other Advantages</h3>
