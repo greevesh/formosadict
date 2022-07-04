@@ -2,7 +2,8 @@
 <p align="center"><img style="height: 300px; width: 350px;" src="https://user-images.githubusercontent.com/37548569/173612790-808e5994-c8e2-4593-b02a-b7c2e78f67de.png"></p>
 
 
-<h1>FormosaDict</h1>		    
+<h1>FormosaDict</h1>
+<img src="src/assets/images/readme/formosa-dict.png"></img>		    
 <h2>Why This Exists</h2>
 							      <p>FormosaDict is an English-Chinese dictionary catered towards people wanting to improve their Taiwanese Mandarin Chinese.
 									 'Formosa' was Taiwan's former name and 'Dict' is short for dictionary. The bear in the logo reading a dictionary
@@ -44,11 +45,3 @@
 											also has a much more modern and minimalistic UI/UX.
 										</li>
 									</ul>
-
-
-./meilisearch --master-key="MTA4YjkyMjk2ZjhkNDllZTM0MTRjNTdj"
-curl \
-  -X GET 'http://localhost:7700/keys' \
-  -H 'Authorization: Bearer MTA4YjkyMjk2ZjhkNDllZTM0MTRjNTdj'
-
-{"results":[{"description":"Default Search API Key (Use it to search from the frontend)","key":"A8IMqTAF6d58877c6930b4f54efcbe7b1d8a84edcee4b8e665f4aade4ec890f88ee12df6","actions":["search"],"indexes":["*"],"expiresAt":null,"createdAt":"2022-01-30T14:38:31Z","updatedAt":"2022-01-30T14:38:31Z"},{"description":"Default Admin API Key (Use it for all other operations. Caution! Do not use it on a public frontend)","key":"sPYSmE08706e9d4fb8bfdc20c98e69840d48daadf66ef31f630501282ab35302ecc5aef0","actions":["*"],"indexes":["*"],"expiresAt":null,"createdAt":"2022-01-30T14:38:31Z","updatedAt":"2022-01-30T14:38:31Z"}]}
