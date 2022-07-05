@@ -6,7 +6,7 @@ import instantsearch from "instantsearch.js";
 import { searchBox, hits } from "instantsearch.js/es/widgets/index.js";
 (async () => {
   const client = new MeiliSearch({
-    host: "http://127.0.0.1:7700",
+    host: "https://app-meilisearchformosadict-prod-001.azurewebsites.net/",
   });
 
   // An index is where the documents are stored.
@@ -18,7 +18,7 @@ import { searchBox, hits } from "instantsearch.js/es/widgets/index.js";
   console.log(response); // => { "uid": 0 }
 })();
 
-const searchClient = instantMeiliSearch("http://127.0.0.1:7700", {
+const searchClient = instantMeiliSearch("https://app-meilisearchformosadict-prod-001.azurewebsites.net/", {
   paginationTotalHits: 30, // default: 200.
   placeholderSearch: false, // default: true.
   primaryKey: "id", // default: undefined
