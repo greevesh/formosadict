@@ -7,6 +7,7 @@ import { searchBox, hits } from "instantsearch.js/es/widgets/index.js";
 (async () => {
   const client = new MeiliSearch({
     host: "https://app-meilisearchformosadict-prod-001.azurewebsites.net/",
+    apiKey: "qrJZeZxNs3gWfNAwLgNtiqgY6fhmx2GDhGX"
   });
 
   // An index is where the documents are stored.
