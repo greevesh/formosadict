@@ -21,7 +21,7 @@ import { searchBox, hits } from "instantsearch.js/es/widgets/index.js";
   console.log(response); // => { "uid": 0 }
 })();
 
-const searchClient = instantMeiliSearch("https://app-meilisearchformosadict-prod-001.azurewebsites.net/", {
+const searchClient = instantMeiliSearch("https://app-meilisearchboo-dev-001.azurewebsites.net/", {
   paginationTotalHits: 30, // default: 200.
   placeholderSearch: false, // default: true.
   primaryKey: "id", // default: undefined
