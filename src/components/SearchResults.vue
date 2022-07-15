@@ -10,6 +10,8 @@ import { searchBox, hits } from "instantsearch.js/es/widgets/index.js";
     apiKey: "qrJZeZxNs3gWfNAwLgNtiqgY6fhmx2GDhGX"
   });
 
+  // test
+
   // An index is where the documents are stored.
   const index = client.index("translations");
 
