@@ -6,11 +6,8 @@ import instantsearch from "instantsearch.js";
 import { searchBox, hits } from "instantsearch.js/es/widgets/index.js";
 (async () => {
   const client = new MeiliSearch({
-    host: "https://app-meilisearchboo-dev-001.azurewebsites.net/",
-    apiKey: "qrJZeZxNs3gWfNAwLgNtiqgY6fhmx2GDhGX"
+    host: "app-meilisearchformosadict-dev-001.azurewebsites.net",
   });
-
-  // test
 
   // An index is where the documents are stored.
   const index = client.index("translations");
@@ -21,7 +18,7 @@ import { searchBox, hits } from "instantsearch.js/es/widgets/index.js";
   console.log(response); // => { "uid": 0 }
 })();
 
-const searchClient = instantMeiliSearch("https://app-meilisearchboo-dev-001.azurewebsites.net/", {
+const searchClient = instantMeiliSearch("app-meilisearchformosadict-dev-001.azurewebsites.net", {
   paginationTotalHits: 30, // default: 200.
   placeholderSearch: false, // default: true.
   primaryKey: "id", // default: undefined
